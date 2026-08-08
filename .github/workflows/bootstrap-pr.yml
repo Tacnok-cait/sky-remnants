@@ -14,23 +14,27 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
-      - name: Expand verified M20 source snapshot
+      - name: Reconstruct and verify M20 source snapshot
         run: |
           set -euo pipefail
-          test -f bootstrap/skyremnants-m20-final-verified.tar.xz
-          tar -xJf bootstrap/skyremnants-m20-final-verified.tar.xz
-          rm -f bootstrap/skyremnants-m20-final-verified.tar.xz
-          rm -f .github/workflows/bootstrap-source.yml
-          rm -f .github/workflows/bootstrap-pr.yml
-          rmdir bootstrap 2>/dev/null || true
+          cat .bootstrap-parts/source.part.*.b64 > /tmp/source.tar.xz.b64
+          base64 --decode /tmp/source.tar.xz.b64 > /tmp/source.tar.xz
+          echo '81016d0f5af1f3369a3b2a2a119f924020ef99b5850043d9b415da8cec7bb1f2  /tmp/source.tar.xz' | sha256sum --check --strict
+          tar -tJf /tmp/source.tar.xz >/dev/null
+      - name: Replace bootstrap tree with verified source
+        run: |
+          set -euo pipefail
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          tar -xJf /tmp/source.tar.xz
           chmod +x gradlew bootstrap-wrapper.sh scripts/*.sh scripts/*.py 2>/dev/null || true
-      - name: Commit normal source tree to main
+      - name: Publish clean M20 baseline to main
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git checkout --orphan m20-final-baseline
           git add -A
-          git commit -m '[skip ci] Expand M20 final verified source baseline'
-          git push origin HEAD:main
+          git commit -m '[skip ci] M20 final verified source baseline'
+          git push --force origin HEAD:main
