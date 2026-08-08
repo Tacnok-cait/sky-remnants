@@ -19,7 +19,7 @@ jobs:
       - name: Reconstruct and verify M20 source snapshot
         run: |
           set -euo pipefail
-          cat .bootstrap-parts/source.part.*.b64 > /tmp/source.tar.xz.b64
+          cat .bootstrap-big/chunk.*.b64 > /tmp/source.tar.xz.b64
           base64 --decode /tmp/source.tar.xz.b64 > /tmp/source.tar.xz
           echo '81016d0f5af1f3369a3b2a2a119f924020ef99b5850043d9b415da8cec7bb1f2  /tmp/source.tar.xz' | sha256sum --check --strict
           tar -tJf /tmp/source.tar.xz >/dev/null
