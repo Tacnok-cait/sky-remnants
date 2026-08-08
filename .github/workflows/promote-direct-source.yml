@@ -1,0 +1,30 @@
+name: promote-direct-source
+
+on:
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  promote:
+    if: github.event.pull_request.head.ref == 'bootstrap/direct-source-sync' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - name: Verify expected M20 source tree
+        run: |
+          set -euo pipefail
+          test -f build.gradle
+          test -f src/main/java/com/skyremnants/SkyRemnants.java
+          test -f docs/PROJECT_STATUS.md
+          test -f docs/NEXT_WORK.md
+          test "$(find . -type f ! -path './.git/*' | wc -l)" -ge 400
+      - name: Promote clean source branch to main
+        run: |
+          set -euo pipefail
+          git push --force origin HEAD:main
