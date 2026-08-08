@@ -1,0 +1,39 @@
+name: bootstrap-source-baseline
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'bootstrap/skyremnants-m20-final-verified.tar.xz'
+      - '.github/workflows/bootstrap-source.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  expand-source:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Expand verified M20 source snapshot
+        run: |
+          set -euo pipefail
+          tar -xJf bootstrap/skyremnants-m20-final-verified.tar.xz
+          rm -f bootstrap/skyremnants-m20-final-verified.tar.xz
+          rm -f .github/workflows/bootstrap-source.yml
+          rmdir bootstrap 2>/dev/null || true
+          chmod +x gradlew bootstrap-wrapper.sh scripts/*.sh scripts/*.py 2>/dev/null || true
+      - name: Commit normal source tree
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'No source expansion changes to commit.'
+            exit 0
+          fi
+          git commit -m '[skip ci] Expand M20 final verified source baseline'
+          git push origin HEAD:main
