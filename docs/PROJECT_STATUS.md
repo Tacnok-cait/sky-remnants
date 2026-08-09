@@ -2,16 +2,15 @@
 
 ## Authoritative baseline
 
-**M21 — First-release design reconciliation**
+**M22 — Production GameTest isolation**
 
 Status: **accepted and closed on 2026-08-09**.
 
 Authoritative source archive:
 
-- `skyremnants-m21-final-verified-full-project-20260809.zip`
-- SHA-256 `762e95a413ea030758f396980ed3f3178250ea38d61959a05789417ffa99e9c5`
-
-The user-uploaded `skyremnants-m21-verified-full-project-20260809.zip` is the authoritative gameplay source used for M21 acceptance. The accepted source also retains the Configuration Cache boundary correction on `verifyReleaseJarContents`.
+- `skyremnants-m22-final-verified-full-project-20260809.zip`
+- SHA-256 `09a957807867b201c52bd07453a3969d1aa2d4059f714c91a5ba0e95a0592cf8`
+- final JAR SHA-256 `c9ae2667fa710d0b9ad5a60a7b358db9d5078d32b63285f86d61474585bf52c0`
 
 ## Milestone summary
 
@@ -19,43 +18,39 @@ The user-uploaded `skyremnants-m21-verified-full-project-20260809.zip` is the au
 - M11–M19 logistics/guidance/airship polish: accepted.
 - M20 TestControl production isolation: accepted 2026-08-08.
 - M21 first-release design reconciliation/deadlock recovery: accepted 2026-08-09.
+- M22 production GameTest isolation: accepted 2026-08-09.
 
-M21 compatibility:
+## M22 accepted scope
+
+- no gameplay additions;
+- production `main` excludes `SkyRemnantsGameTests`, `VoidRescueGameTests` and both GameTest empty NBT templates;
+- development-only `gameTestSupport` owns those legacy-path files;
+- NeoForge development runs still include the full GameTest support;
+- `verifyReleaseJarContents` rejects TestControl and GameTest leakage.
+
+Automated evidence:
+
+- JUnit 66/66, 23 suites;
+- `clean build` passed;
+- release JAR 483,264 bytes / 365 entries / zero TestControl or GameTest forbidden entries;
+- GameTest 65/65 in 1.798 s;
+- dedicated server reached `Done (0.321s)!` and stopped/saved normally;
+- real Linux Xvfb client reached TitleScreen and exited cleanly.
+
+User-local installation and validation passed on 2026-08-09. See `M22_ACCEPTANCE_RESULT_2026-08-09.md` and `M22_FINALIZATION_20260809.md`.
+
+## Compatibility
 
 - no registry ID changes;
-- `SkyWorldData` version 9;
+- no recipe/gameplay changes;
+- no network payload changes;
+- `SkyWorldData` remains version 9;
 - no save migration;
 - airship real slots 0–90;
 - player menu slots 91–126;
 - M19 supply ghost slots 127–130;
 - `supply_manifest` unchanged.
 
-## M22 — Production GameTest isolation
+## Next development
 
-**Status: automated-validation candidate on 2026-08-09; user-local acceptance pending. M21 remains authoritative.**
-
-Scope:
-
-- no gameplay additions;
-- production `main` excludes `SkyRemnantsGameTests`, `VoidRescueGameTests` and both GameTest empty NBT templates;
-- new development-only `gameTestSupport` source set owns those legacy-path files;
-- NeoForge development mod coordinates still include GameTest support;
-- `verifyReleaseJarContents` rejects TestControl and GameTest leakage.
-
-Compatibility:
-
-- no registry, recipe, payload, NBT or save-format changes;
-- `SkyWorldData` remains version 9;
-- airship slots and M19 `supply_manifest` unchanged;
-- no save migration.
-
-Automated validation:
-
-- JUnit: 66/66, 23 suites, zero failures/errors/skips;
-- `clean build`: passed;
-- release JAR: 483,264 bytes, 365 entries, zero TestControl/GameTest forbidden entries;
-- GameTest: 65/65 in 1.798 s;
-- dedicated server: reached `Done (0.321s)!`, graceful stop/save;
-- real Linux headless client: TitleScreen, screenshot, llvmpipe OpenGL 4.5, zero unexpected errors/resource regressions/new crash reports, graceful exit 0.
-
-M22 must not be merged to the accepted baseline until user-local Windows/JAR-boundary validation passes.
+M23 — first-release presentation and RC closure. Do not expand into long-term 6–15h or 15h+ systems before the first-release RC.
