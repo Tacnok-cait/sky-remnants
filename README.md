@@ -1,42 +1,37 @@
-# Sky Remnants — M23 Visual Identity Rev2 Candidate
+# Sky Remnants / 天穹残岛
 
-Authoritative user-accepted baseline: **M22 final verified / accepted 2026-08-09**.
+Minecraft Java Edition 1.21.1 + NeoForge 21.1.244.
 
-Current development: **M23 visual identity Rev2 — automated/Linux real-client validation passed; user-local Windows/visual acceptance pending.**
+## Accepted baseline
 
-Rev2 supersedes the first M23 visual candidate. The redraw was based on a direct audit of the actual Minecraft 1.21.1 client texture dimensions and pixel density, while keeping all Sky Remnants art original.
+**M23 — First-release visual identity Rev2**
 
-## Rev2 summary
+Status: **accepted and closed on 2026-08-09**.
 
-- 32 project-owned 16×16 item textures, redrawn;
-- 34 project-owned 16×16 block textures, redrawn;
-- existing custom 64×64 airship entity texture/model/renderer retained;
-- 128×128 project mod icon;
-- reproducible `scripts/generate-m23-textures.py` in the full source artifact;
-- no gameplay/save/network/registry changes.
+M23 is presentation-only. It does not change gameplay, registry IDs, networking, NBT, SavedData schema, recipes, airship slots or save migration.
 
-Minecraft 1.21.1 audit result:
+Accepted visual scope:
 
-- vanilla item PNG: 605 / 605 are 16×16;
-- vanilla block PNG: 963 are 16×16; 49 are animated/multi-frame exceptions.
+- 32 project-owned 16×16 standalone item textures;
+- 34 project-owned 16×16 block textures;
+- custom 64×64 basic-airship entity texture;
+- custom `BasicAirshipModel` and `BasicAirshipRenderer`;
+- reinforced-state armor geometry;
+- 128×128 mod icon;
+- distinct eye-level machine side panels;
+- reproducible `scripts/generate-m23-textures.py`.
 
-Rev2 artifacts:
+Validation before acceptance:
 
-- full project SHA-256 `da3b839285af45a47c06388d27f4146ad636a79f90ff1111ee74b69114eecd85`;
-- M22→M23 Rev2 incremental SHA-256 `ca5c912ebe1640863751f99a50b36cdfaf02c420b8168031ce6d397ee26509a8`;
-- candidate JAR SHA-256 `8833132d0947e5e2601d9c4b29d32cff0489742dd82957bb3ac9c9c58f46b5e6`.
+- JUnit 71/71;
+- clean build passed;
+- GameTest 65/65;
+- dedicated server passed;
+- real Linux Xvfb + llvmpipe client passed resource/model/crash checks and exited 0;
+- user accepted the Rev2 visual direction on 2026-08-09.
 
-## Cross-conversation entry
+No additional Windows build log was supplied for M23; the full Windows/legacy-save/compatibility sweep is part of M24 RC acceptance.
 
-Read:
+## Next
 
-1. `docs/DESIGN_BASELINE.md`
-2. `docs/PROJECT_STATUS.md`
-3. `docs/NEXT_WORK.md`
-4. `docs/KNOWN_ISSUES.md`
-5. `docs/M23_VANILLA_TEXTURE_AUDIT_20260809.md`
-6. `docs/M23_TEXTURE_REDRAW_REV2_20260809.md`
-7. `docs/M23_AUTOMATED_VALIDATION_20260809.md`
-8. `docs/M23_ACCEPTANCE_CHECKLIST.md`
-
-M22 remains authoritative until user-local M23 acceptance. Complete ZIP artifacts remain the source authority while GitHub is the cross-conversation status/candidate index.
+M24 is the first-release Release Candidate closure/audit milestone. No new 6–15h or 15h+ gameplay systems are added before RC.
