@@ -1,42 +1,26 @@
 # Known Issues and Observations
 
-## Accepted observation: multiplayer supply menu snapshot
+## Accepted non-blocking observation: multiplayer supply-menu snapshot
 
-When two clients open the same airship supply menu, an already-open second client's view does not live-refresh the first client's supply-target change.
+When two clients keep the same airship supply menu open, the second already-open client does not live-refresh the first client's supply-target edit.
 
 Verified behavior:
 
 - server state remains authoritative;
-- reopening the menu shows current data;
-- closing an old menu does not overwrite newer state;
+- reopening the second menu shows current shared data;
 - no real-item duplication;
-- no real-item loss.
+- no data loss;
+- closing an old menu does not overwrite the newer server manifest.
 
-This remains a non-blocking UI synchronization observation.
+This remains a UI synchronization observation, not a data-integrity problem.
 
-## Closed: deadlock recovery
+## Closed milestones
 
-M21 is accepted:
+- M21: emergency lava recovery and distant chicken/sheep recovery are accepted.
+- M20: TestControl is isolated from production JARs.
+- M22: GameTest Java/classes/structures are isolated from production JARs.
+- M23: vanilla visual placeholders are replaced by the accepted Rev2 project visual identity.
 
-- lost starting lava has the expensive emergency lava-bucket recovery recipe;
-- lost chicken/sheep stock can be recovered from qualifying distant ecology islands.
+## M24 RC acceptance boundary
 
-## Closed: development test code in production JAR
-
-- M20 isolates TestControl.
-- M22 isolates GameTest classes/resources.
-- release-JAR verification guards both boundaries.
-
-## M23 Rev2 candidate
-
-The first M23 visual candidate is superseded by Rev2 after direct Minecraft 1.21.1 texture-size/pixel-density review.
-
-Rev2 currently has no known functional blocker in automated/Linux validation. M22 remains authoritative until user-local visual acceptance.
-
-## Deferred to M24 RC audit
-
-- final root license-facing file/text (metadata currently remains `All Rights Reserved`);
-- final distribution metadata/package audit;
-- full old-save and dual-client matrix;
-- Jade/JEI optional compatibility final pass;
-- first-release RC packaging.
+The current Linux workspace does not contain the historical M2→M23 user worlds or the previously accepted official Jade/JEI runtime JARs. M24 will provide automated coverage and Windows acceptance tooling, but the final historical-save and official compatibility-runtime checks must be executed on the user's retained Windows environment.
