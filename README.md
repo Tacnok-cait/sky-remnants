@@ -2,30 +2,30 @@
 
 Sky Remnants is a Minecraft Java Edition 1.21.1 + NeoForge sky-island survival mod focused on island building, approachable automation and logistics, modular airship exploration, sparse valuable outer islands, and voluntary combat challenges.
 
-## Release candidate
+## First release candidate
 
-Current project version: **1.0.0-rc.1 (M24 candidate)**.
+**1.0.0-rc.1 / M24 — accepted and closed on 2026-08-09.**
 
-Last user-accepted milestone: **M23 Visual Identity Rev2**.
+M24 is release engineering and acceptance closure only. It adds no new progression system and introduces no registry, recipe, network, NBT, SavedData or save-format migration.
 
-M24 is release engineering only. It does not add progression or gameplay systems.
+The accepted source includes the final Windows visual fixes to the airship, challenge pedestals and project-owned pixel-art assets.
 
 ## Requirements
 
 - Minecraft Java Edition 1.21.1
-- NeoForge 21.1.244 or later in the 21.1 line used by this project
-- Java 21 development toolchain
+- NeoForge 21.1.244 project baseline
+- Java 21
 
-Optional integrations: Jade and JEI. Neither is a hard dependency of the core mod.
+Optional integrations: Jade and JEI. Neither is a hard dependency. M24 Windows acceptance verified Jade 15.10.0+neoforge and JEI 19.21.0.247.
 
-## First-version scope
+## Verification
 
-The accepted vertical slice covers the starting islands, early resource loop, automation, simple item pipes, farming/animal/hostile-resource systems, Smart Assembler, modular airships, external islands, active challenges, docking and supply logistics, and constrained chunk loading.
+Windows final acceptance closed historical-save migration, official Jade/JEI, one-server/two-client data safety and final presentation/log review. The same returned accepted source was independently revalidated on Linux with 75/75 JUnit, 65/65 GameTest, dedicated server and a real Xvfb + llvmpipe client.
 
-Long-term 6–15h and 15h+ systems are intentionally outside the first RC.
+Read `docs/PROJECT_STATUS.md`, `docs/M24_LOCAL_ACCEPTANCE_RESULT_20260809.md` and `docs/M24_FINALIZATION_20260809.md` first in a new conversation.
 
-See `docs/M24_ACCEPTANCE_CHECKLIST.md` for the final RC acceptance matrix.
+The complete final source ZIP remains the authoritative source snapshot; this repository is the cross-conversation status/acceptance index until a complete binary-safe source import is maintained here.
 
 ## License
 
-Sky Remnants is currently **All Rights Reserved**. See `LICENSE` and `THIRD_PARTY_NOTICES.md` in the complete M24 source artifact.
+Sky Remnants is **All Rights Reserved**. See `LICENSE` and `THIRD_PARTY_NOTICES.md` in the complete source artifact.
