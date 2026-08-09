@@ -1,19 +1,19 @@
 # Next Work
 
-Authoritative accepted baseline: **M23 final verified / accepted 2026-08-09**.
+Authoritative accepted baseline: **M24 / 1.0.0-rc.1 — accepted 2026-08-09**.
 
-Current candidate: **M24 first-release RC / `1.0.0-rc.1`**.
+## Immediate mode: release / bug fixes only
 
-The Linux automated RC core chain is complete. Do not add gameplay or reopen accepted milestones unless a regression is found.
+The first-version feature slice is frozen. Do not add new progression systems to this RC line unless a release-blocking regression requires a narrowly scoped fix.
 
-## Remaining acceptance work
+Priorities:
 
-On Windows, close only these final gates:
+1. preserve registry IDs, `SkyWorldData` v9, network payloads and existing save compatibility;
+2. fix only reproducible release defects found against the accepted M24 baseline;
+3. keep the release-JAR TestControl/GameTest/compat-stub boundary enforced;
+4. retain Windows + Linux smoke coverage for any RC hotfix;
+5. retain the M19 supply-menu snapshot issue as a non-blocking UI observation unless data safety changes.
 
-1. run the standard M24 build/GameTest/release-JAR checks;
-2. load copies of retained historical accepted worlds and verify persistence/migration;
-3. run with official Jade/JEI optional runtime artifacts and verify both integrations;
-4. run one dedicated server with two clients and recheck airship inventory/modules, scan/navigation isolation and supply-manifest data safety;
-5. perform the final visual/log pass in zh_cn and en_us.
+## Post-first-release roadmap
 
-If all gates pass, M24 becomes the first-version accepted RC and first-version feature development stops. Any 6–15h or 15h+ gameplay belongs after the RC.
+Only after the first release is intentionally reopened for feature development should the project resume 6–15h / 15h+ content such as larger airships, harder external regions, advanced equipment, bosses/endgame or other previously deferred systems. These are not part of `1.0.0-rc.1`.
