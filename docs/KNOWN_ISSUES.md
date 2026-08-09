@@ -1,33 +1,42 @@
 # Known Issues and Observations
 
-## Accepted non-blocking observation: multiplayer supply-menu snapshot
+## Accepted observation: multiplayer supply menu snapshot
 
-When two clients keep the same airship supply menu open, the second already-open client does not live-refresh the first client's supply-target edit.
+When two clients open the same airship supply menu, an already-open second client's view does not live-refresh the first client's supply-target change.
 
 Verified behavior:
 
 - server state remains authoritative;
-- reopening the second menu shows current shared data;
+- reopening the menu shows current data;
+- closing an old menu does not overwrite newer state;
 - no real-item duplication;
-- no data loss;
-- closing an old menu does not overwrite the newer server manifest.
+- no real-item loss.
 
-This remains a UI synchronization observation, not a data-integrity problem.
+This remains a non-blocking UI synchronization observation.
 
-## Closed: first-release deadlock recovery
+## Closed: deadlock recovery
 
-M21 is accepted. Lost starting lava has an expensive emergency recovery recipe, and qualifying distant ecology islands provide one-time chicken/sheep recovery fauna.
+M21 is accepted:
+
+- lost starting lava has the expensive emergency lava-bucket recovery recipe;
+- lost chicken/sheep stock can be recovered from qualifying distant ecology islands.
 
 ## Closed: development test code in production JAR
 
-M20 isolates TestControl. M22 isolates GameTest Java/classes and GameTest structure templates while retaining the development test suite. Release-JAR verification guards against regression.
+- M20 isolates TestControl.
+- M22 isolates GameTest classes/resources.
+- release-JAR verification guards both boundaries.
 
-## M23 candidate: visual identity
+## M23 Rev2 candidate
 
-The former vanilla-boat/basic-item presentation debt is addressed by the current M23 candidate through project-owned item/block textures, a custom basic-airship model/renderer/texture, and a project mod icon.
+The first M23 visual candidate is superseded by Rev2 after direct Minecraft 1.21.1 texture-size/pixel-density review.
 
-M22 remains authoritative until M23 user-local visual acceptance passes.
+Rev2 currently has no known functional blocker in automated/Linux validation. M22 remains authoritative until user-local visual acceptance.
 
 ## Deferred to M24 RC audit
 
-The project still declares `All Rights Reserved`. Final license-facing release text/files, distribution metadata audit, complete old-save/multiplayer/Jade/JEI regression matrix and first-release RC packaging are deliberately deferred to M24 rather than expanding M23.
+- final root license-facing file/text (metadata currently remains `All Rights Reserved`);
+- final distribution metadata/package audit;
+- full old-save and dual-client matrix;
+- Jade/JEI optional compatibility final pass;
+- first-release RC packaging.
