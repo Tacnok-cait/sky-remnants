@@ -1,58 +1,37 @@
 # Sky Remnants Project Status
 
-## Authoritative baseline
+## Authoritative accepted baseline
 
-**M23 — First-release visual identity Rev2**
+**M23 Visual Identity Rev2 — accepted and closed on 2026-08-09.**
 
-Status: **accepted and closed on 2026-08-09**.
+The M23 final verified archive is the last user-accepted source baseline.
 
-Authoritative accepted source archive:
+## Current candidate
 
-- `skyremnants-m23-final-verified-full-project-20260809.zip`
+**M24 — First-release Release Candidate closure / `1.0.0-rc.1`**
 
-## Milestone summary
+Status: **Linux automated RC core validation passed; final user-local Windows acceptance pending.**
 
-- M0–M10 core vertical slice: accepted.
-- M11–M19 logistics/guidance/airship polish: accepted.
-- M20 TestControl production isolation: accepted 2026-08-08.
-- M21 first-release design reconciliation/deadlock recovery: accepted 2026-08-09.
-- M22 production GameTest isolation: accepted 2026-08-09.
-- M23 first-release visual identity Rev2: accepted 2026-08-09.
+M24 is release engineering only. It adds no gameplay systems and changes no registry IDs, recipes, network payloads, NBT/SavedData schemas, airship slot indices or save format. `SkyWorldData` remains version 9.
 
-## M23 accepted scope
+### Linux automated evidence
 
-- 32 project-owned 16×16 item textures;
-- 34 project-owned 16×16 block textures;
-- custom basic-airship model/renderer/64×64 texture;
-- reinforced airship visual armor;
-- 128×128 mod icon;
-- important machines have distinct side-panel visuals;
-- no gameplay/save/network/registry changes.
+- JUnit 74/74 in 25 suites;
+- final `clean build` and `verifyReleaseJarContents` passed;
+- production JAR: 523,138 bytes / 444 entries / SHA-256 `1a0598642d9451d5c04a242c7e03bf3224779f3efdc2d1dd4018101f832c42ac`;
+- zero TestControl/GameTest/Jade/JEI-stub release leakage;
+- GameTest 65/65 in 1.893 s;
+- dedicated server reached `Done (0.524s)!`, stopped and saved normally;
+- real Linux Xvfb + llvmpipe client reached TitleScreen, passed resource/model/crash checks and exited 0;
+- en_us / zh_cn remain 352 / 352 keys.
 
-Validation evidence before acceptance:
+### Final Windows acceptance gates
 
-- JUnit 71/71 in 24 suites;
-- clean build passed;
-- production JAR 522,223 bytes / 442 entries / zero TestControl or GameTest forbidden entries;
-- GameTest 65/65 in 2.835 s;
-- dedicated server reached `Done (0.483s)!`, stopped and saved normally;
-- real Linux Xvfb client reached TitleScreen, passed resource/model/crash checks, and exited 0;
-- user accepted the Rev2 visual direction on 2026-08-09.
+M24 must not be declared accepted until the user closes:
 
-No separate Windows build log was supplied for M23. M24 RC acceptance owns the final Windows, historical-save, multiplayer and official Jade/JEI sweep.
+1. retained historical-world migration on copies of available accepted worlds;
+2. official Jade/JEI runtime compatibility;
+3. one-server/two-client multiplayer and supply-manifest/data-safety regression;
+4. final Windows presentation/log check.
 
-## Compatibility
-
-- no registry ID changes;
-- no recipe/gameplay changes;
-- no network payload changes;
-- `SkyWorldData` remains version 9;
-- no save migration;
-- airship real slots 0–90;
-- player menu slots 91–126;
-- M19 supply ghost slots 127–130;
-- `supply_manifest` unchanged.
-
-## Next development
-
-M24 — first-release RC closure/audit. No long-term progression expansion before RC.
+See `M24_ACCEPTANCE_CHECKLIST.md`, `M24_AUTOMATED_VALIDATION_20260809.md` and `M24_KNOWN_LIMITATIONS.md`.
