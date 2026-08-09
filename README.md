@@ -1,47 +1,30 @@
-# Sky Remnants / 天穹残岛
+# Sky Remnants — M23 Visual Identity Rev2 Candidate
 
-Minecraft Java Edition 1.21.1 + NeoForge 21.1.244 mod project.
+Authoritative user-accepted baseline: **M22 final verified / accepted 2026-08-09**.
 
-## Authoritative baseline
+Current development: **M23 visual identity Rev2 — automated/Linux real-client validation passed; user-local Windows/visual acceptance pending.**
 
-**M22 final verified — accepted 2026-08-09.**
+Rev2 supersedes the first M23 visual candidate. The redraw was based on a direct audit of the actual Minecraft 1.21.1 client texture dimensions and pixel density, while keeping all Sky Remnants art original.
 
-Authoritative accepted source archive:
+## Rev2 summary
 
-- `skyremnants-m22-final-verified-full-project-20260809.zip`
-- SHA-256 `09a957807867b201c52bd07453a3969d1aa2d4059f714c91a5ba0e95a0592cf8`
-
-## Current branch candidate
-
-**M23 — first-release visual identity. Automated + real-client validation passed; user-local Windows/visual acceptance pending.**
-
-M23 adds no gameplay. It replaces vanilla visual placeholders with project-owned pixel art and a custom airship renderer while preserving the M22 gameplay/save/network surface.
-
-Implemented:
-
-- 32 project-owned 16×16 standalone item textures;
-- 34 project-owned 16×16 block textures;
-- 64×64 custom basic-airship entity texture;
-- custom `BasicAirshipModel` + `BasicAirshipRenderer`;
-- reinforced airship armor geometry;
+- 32 project-owned 16×16 item textures, redrawn;
+- 34 project-owned 16×16 block textures, redrawn;
+- existing custom 64×64 airship entity texture/model/renderer retained;
 - 128×128 project mod icon;
-- distinct eye-level side panels for important machines.
+- reproducible `scripts/generate-m23-textures.py` in the full source artifact;
+- no gameplay/save/network/registry changes.
 
-Automated evidence:
+Minecraft 1.21.1 audit result:
 
-- JUnit 71/71, 24 suites;
-- clean build passed;
-- production JAR 517,008 bytes / 441 entries / zero TestControl or GameTest forbidden entries;
-- GameTest 65/65 in 3.360 s;
-- dedicated server passed;
-- real Xvfb + llvmpipe client passed resource/model/crash checks;
-- real client + test server visual pass confirmed item icons, machine side panels and custom airship rendering.
+- vanilla item PNG: 605 / 605 are 16×16;
+- vanilla block PNG: 963 are 16×16; 49 are animated/multi-frame exceptions.
 
-Candidate artifacts:
+Rev2 artifacts:
 
-- full project SHA-256 `fcee74d5adbfa0e44eace5e39215002fc79046783434813ccb215eb827442d69`;
-- M22→M23 incremental SHA-256 `365c8007bfd4b4f3bdbd4f2f76410e3ff50605312964b1ea3cb2dcf4ba4706c2`;
-- candidate JAR SHA-256 `396029baa6ff94a745de1853ad9425f391404ff61175068a5b2a7127c3c9830c`.
+- full project SHA-256 `da3b839285af45a47c06388d27f4146ad636a79f90ff1111ee74b69114eecd85`;
+- M22→M23 Rev2 incremental SHA-256 `ca5c912ebe1640863751f99a50b36cdfaf02c420b8168031ce6d397ee26509a8`;
+- candidate JAR SHA-256 `8833132d0947e5e2601d9c4b29d32cff0489742dd82957bb3ac9c9c58f46b5e6`.
 
 ## Cross-conversation entry
 
@@ -51,8 +34,9 @@ Read:
 2. `docs/PROJECT_STATUS.md`
 3. `docs/NEXT_WORK.md`
 4. `docs/KNOWN_ISSUES.md`
-5. `docs/M23_IMPLEMENTATION_NOTES.md`
-6. `docs/M23_AUTOMATED_VALIDATION_20260809.md`
-7. `docs/M23_ACCEPTANCE_CHECKLIST.md`
+5. `docs/M23_VANILLA_TEXTURE_AUDIT_20260809.md`
+6. `docs/M23_TEXTURE_REDRAW_REV2_20260809.md`
+7. `docs/M23_AUTOMATED_VALIDATION_20260809.md`
+8. `docs/M23_ACCEPTANCE_CHECKLIST.md`
 
-`main` remains M22 accepted until M23 user-local acceptance. Complete ZIP snapshots remain authoritative source artifacts while the repository is used as the cross-conversation status/candidate index.
+M22 remains authoritative until user-local M23 acceptance. Complete ZIP artifacts remain the source authority while GitHub is the cross-conversation status/candidate index.
