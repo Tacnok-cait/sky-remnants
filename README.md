@@ -1,37 +1,31 @@
 # Sky Remnants / 天穹残岛
 
-Minecraft Java Edition 1.21.1 + NeoForge 21.1.244.
+Sky Remnants is a Minecraft Java Edition 1.21.1 + NeoForge sky-island survival mod focused on island building, approachable automation and logistics, modular airship exploration, sparse valuable outer islands, and voluntary combat challenges.
 
-## Accepted baseline
+## Release candidate
 
-**M23 — First-release visual identity Rev2**
+Current project version: **1.0.0-rc.1 (M24 candidate)**.
 
-Status: **accepted and closed on 2026-08-09**.
+Last user-accepted milestone: **M23 Visual Identity Rev2**.
 
-M23 is presentation-only. It does not change gameplay, registry IDs, networking, NBT, SavedData schema, recipes, airship slots or save migration.
+M24 is release engineering only. It does not add progression or gameplay systems.
 
-Accepted visual scope:
+## Requirements
 
-- 32 project-owned 16×16 standalone item textures;
-- 34 project-owned 16×16 block textures;
-- custom 64×64 basic-airship entity texture;
-- custom `BasicAirshipModel` and `BasicAirshipRenderer`;
-- reinforced-state armor geometry;
-- 128×128 mod icon;
-- distinct eye-level machine side panels;
-- reproducible `scripts/generate-m23-textures.py`.
+- Minecraft Java Edition 1.21.1
+- NeoForge 21.1.244 or later in the 21.1 line used by this project
+- Java 21 development toolchain
 
-Validation before acceptance:
+Optional integrations: Jade and JEI. Neither is a hard dependency of the core mod.
 
-- JUnit 71/71;
-- clean build passed;
-- GameTest 65/65;
-- dedicated server passed;
-- real Linux Xvfb + llvmpipe client passed resource/model/crash checks and exited 0;
-- user accepted the Rev2 visual direction on 2026-08-09.
+## First-version scope
 
-No additional Windows build log was supplied for M23; the full Windows/legacy-save/compatibility sweep is part of M24 RC acceptance.
+The accepted vertical slice covers the starting islands, early resource loop, automation, simple item pipes, farming/animal/hostile-resource systems, Smart Assembler, modular airships, external islands, active challenges, docking and supply logistics, and constrained chunk loading.
 
-## Next
+Long-term 6–15h and 15h+ systems are intentionally outside the first RC.
 
-M24 is the first-release Release Candidate closure/audit milestone. No new 6–15h or 15h+ gameplay systems are added before RC.
+See `docs/M24_ACCEPTANCE_CHECKLIST.md` for the final RC acceptance matrix.
+
+## License
+
+Sky Remnants is currently **All Rights Reserved**. See `LICENSE` and `THIRD_PARTY_NOTICES.md` in the complete M24 source artifact.
