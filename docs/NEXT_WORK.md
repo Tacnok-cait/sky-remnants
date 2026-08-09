@@ -1,24 +1,19 @@
 # Next Work
 
-Authoritative user-accepted baseline: **M23 final verified / accepted 2026-08-09**.
+Authoritative accepted baseline: **M23 final verified / accepted 2026-08-09**.
 
-## M24 — first-release Release Candidate closure
+Current candidate: **M24 first-release RC / `1.0.0-rc.1`**.
 
-M23 is closed. M24 adds no new progression systems.
+The Linux automated RC core chain is complete. Do not add gameplay or reopen accepted milestones unless a regression is found.
 
-Planned scope:
+## Remaining acceptance work
 
-1. finalize release versioning and metadata;
-2. add explicit license/release-facing files;
-3. harden production-JAR content verification;
-4. audit bilingual resources and package contents;
-5. run JUnit, clean build, GameTest, dedicated server and real Linux client;
-6. run multiplayer data-safety regression where supported by the current environment;
-7. prepare Windows scripts/checklists for historical M2→M23 saves and official Jade/JEI runtime verification;
-8. produce the first-release RC package.
+On Windows, close only these final gates:
 
-Final Windows acceptance remains required for historical save migration and official Jade/JEI runtime because those accepted historical worlds/mod jars are not present in the current Linux workspace.
+1. run the standard M24 build/GameTest/release-JAR checks;
+2. load copies of retained historical accepted worlds and verify persistence/migration;
+3. run with official Jade/JEI optional runtime artifacts and verify both integrations;
+4. run one dedicated server with two clients and recheck airship inventory/modules, scan/navigation isolation and supply-manifest data safety;
+5. perform the final visual/log pass in zh_cn and en_us.
 
-## Explicitly out of scope before RC
-
-No larger/multiblock airships, bosses, special dimensions, advanced power/fluid/wireless logistics, endgame equipment, new progression tiers or other 6–15h/15h+ systems.
+If all gates pass, M24 becomes the first-version accepted RC and first-version feature development stops. Any 6–15h or 15h+ gameplay belongs after the RC.
