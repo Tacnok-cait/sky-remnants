@@ -2,36 +2,53 @@
 
 ## Authoritative accepted baseline
 
-**M23 Visual Identity Rev2 — accepted and closed on 2026-08-09.**
+**M24 — First-release RC closure / 1.0.0-rc.1**
 
-The M23 final verified archive is the last user-accepted source baseline.
+Status: **accepted and closed on 2026-08-09**.
 
-## Current candidate
+The authoritative runtime source is the user-returned M24 final accepted source, followed only by historical/status-document restoration for archival completeness.
 
-**M24 — First-release Release Candidate closure / `1.0.0-rc.1`**
+## Windows final acceptance
 
-Status: **Linux automated RC core validation passed; final user-local Windows acceptance pending.**
+- JUnit 75/75, 25 suites;
+- clean build and `verifyReleaseJarContents`: PASS;
+- GameTest 65/65 in 2.412 s;
+- dedicated server ready / graceful stop / exit 0;
+- 13 retained historical-world copies: 13/13 load/save/stop PASS;
+- Jade 15.10.0+neoforge and JEI 19.21.0.247 runtime: PASS;
+- one real dedicated server + two independent clients: shared-airship/data-safety and restart persistence PASS;
+- final Windows visual/log review: PASS, no P0/P1 presentation defect, crash reports 0.
 
-M24 is release engineering only. It adds no gameplay systems and changes no registry IDs, recipes, network payloads, NBT/SavedData schemas, airship slot indices or save format. `SkyWorldData` remains version 9.
+## Linux revalidation of returned accepted source
 
-### Linux automated evidence
+- JUnit 75/75;
+- build + release-JAR verification: PASS;
+- production JAR: 523,414 bytes / 446 entries / SHA-256 `5fc0377ad3b395cf527a0c9c13a5881fe36b9ef9b9627e5217c835c32e0b1c69`;
+- forbidden TestControl/GameTest/Jade/JEI-stub entries: 0;
+- GameTest 65/65 in 2.502 s;
+- fresh dedicated server reached `Done (13.065s)!`, stopped and saved all dimensions;
+- real Xvfb + llvmpipe client reached TitleScreen, passed model/resource/crash checks and exited 0.
 
-- JUnit 74/74 in 25 suites;
-- final `clean build` and `verifyReleaseJarContents` passed;
-- production JAR: 523,138 bytes / 444 entries / SHA-256 `1a0598642d9451d5c04a242c7e03bf3224779f3efdc2d1dd4018101f832c42ac`;
-- zero TestControl/GameTest/Jade/JEI-stub release leakage;
-- GameTest 65/65 in 1.893 s;
-- dedicated server reached `Done (0.524s)!`, stopped and saved normally;
-- real Linux Xvfb + llvmpipe client reached TitleScreen, passed resource/model/crash checks and exited 0;
-- en_us / zh_cn remain 352 / 352 keys.
+## Final acceptance fixes retained
 
-### Final Windows acceptance gates
+The Windows-accepted source includes final presentation corrections beyond the initial RC candidate: revised basic-airship geometry/UV usage and reinforced silhouette, distinct meadow/wind challenge-pedestal side textures, refreshed project-owned pixel art and the corresponding M23 resource-test updates.
 
-M24 must not be declared accepted until the user closes:
+## Compatibility
 
-1. retained historical-world migration on copies of available accepted worlds;
-2. official Jade/JEI runtime compatibility;
-3. one-server/two-client multiplayer and supply-manifest/data-safety regression;
-4. final Windows presentation/log check.
+- Minecraft Java Edition 1.21.1;
+- NeoForge 21.1.244 baseline;
+- Java 21;
+- no registry ID changes;
+- no M24 recipe/progression changes;
+- no network payload changes;
+- `SkyWorldData` remains version 9;
+- no M24 save migration;
+- airship slots and `supply_manifest` unchanged.
 
-See `M24_ACCEPTANCE_CHECKLIST.md`, `M24_AUTOMATED_VALIDATION_20260809.md` and `M24_KNOWN_LIMITATIONS.md`.
+## Known non-blocker
+
+The accepted M19 supply-menu snapshot behavior remains UI-only: an already-open second menu does not live-refresh another client's ghost-target edit until reopened. Final M24 multiplayer acceptance reconfirmed no duplication, loss, stale-close overwrite or persistence failure.
+
+## Next phase
+
+First-version feature development is frozen. Continue in release/bug-fix mode; 6–15h and 15h+ progression systems belong to post-first-release milestones.
