@@ -2,30 +2,33 @@
 
 Authoritative user-accepted baseline: **M22 final verified / accepted 2026-08-09**.
 
-## M23 — first-release visual identity
+## Current — M23 Visual Identity Rev2
 
-**Current status: implementation and Linux automated/real-client validation passed; user-local Windows/visual acceptance pending.**
+**Automated/Linux real-client validation passed; user-local Windows/visual acceptance pending.**
 
-Implemented scope:
+The first M23 visual candidate is superseded by Rev2.
 
-1. project-owned item textures for the key resource/tool/airship families;
-2. project-owned block material set and distinct side panels for important machines;
-3. custom basic-airship model/renderer/texture with reinforced armor visual;
-4. project mod icon;
-5. visual-resource regression tests and real-client visual evidence.
+Rev2 is visual-only:
 
-M23 adds no gameplay and preserves the M22 gameplay/save/network surface.
+1. audit actual Minecraft 1.21.1 item/block PNG dimensions;
+2. redraw all 32 standalone item textures at 16×16;
+3. redraw all 34 block textures at 16×16;
+4. retain the custom basic-airship renderer/model and reinforced visual armor;
+5. retain the project mod icon;
+6. keep gameplay/save/network/registry behavior unchanged.
+
+Do not merge/close M23 until user-local visual acceptance passes.
 
 ## After M23 acceptance — M24 first-release RC closure
 
 M24 adds no new progression systems. It should:
 
-1. finalize release metadata, description, icon and license-facing files;
-2. audit production JAR/package contents and bilingual resource completeness;
-3. run the complete first-release regression matrix: JUnit, GameTest, dedicated server, real client, old-save migration, multiplayer data safety, Jade/JEI optional compatibility and Windows/Linux checks;
-4. verify M2→M23 save compatibility and the accepted M19 supply-menu data-safety behavior;
-5. produce the first-release Release Candidate package and final acceptance checklist.
+1. finalize license-facing files and release metadata;
+2. audit production JAR/package contents and bilingual resources;
+3. run full first-release regression: JUnit, GameTest, dedicated server, Windows/Linux real clients, old saves, dual-client data safety, optional Jade/JEI;
+4. verify M2→M23 compatibility and M19 supply-menu data safety;
+5. produce first-release RC artifacts and final acceptance checklist.
 
 ## Explicitly out of scope before RC
 
-Do not add 6–15h or 15h+ long-term systems: larger/multiblock airships, bosses, special dimensions, advanced power/fluid/wireless logistics, endgame equipment or new progression tiers.
+No larger/multiblock airships, bosses, special dimensions, advanced power/fluid/wireless logistics, endgame equipment or new progression tiers.
