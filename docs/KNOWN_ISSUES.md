@@ -2,25 +2,28 @@
 
 ## Accepted non-blocking observation: multiplayer supply-menu snapshot
 
-When two clients keep the same airship supply menu open, the second already-open client does not live-refresh the first client's supply-target edit.
+When two clients keep the same airship supply menu open, the second already-open client does not live-refresh the first client's ghost-target edit.
 
-Verified behavior:
+Final M24 multiplayer acceptance reconfirmed:
 
 - server state remains authoritative;
-- reopening the second menu shows current shared data;
-- no real-item duplication;
-- no data loss;
-- closing an old menu does not overwrite the newer server manifest.
+- reopening shows current shared data;
+- closing an old menu does not overwrite newer state;
+- no real-item duplication or loss;
+- supply target persistence survives full client/server restart.
 
-This remains a UI synchronization observation, not a data-integrity problem.
+This remains UI-only and is not a first-release blocker.
 
-## Closed milestones
+## Closed before / during M24
 
-- M21: emergency lava recovery and distant chicken/sheep recovery are accepted.
-- M20: TestControl is isolated from production JARs.
-- M22: GameTest Java/classes/structures are isolated from production JARs.
-- M23: vanilla visual placeholders are replaced by the accepted Rev2 project visual identity.
+- M21 deadlock recovery: closed and accepted;
+- M20 TestControl production isolation: closed and accepted;
+- M22 GameTest production isolation: closed and accepted;
+- M23 visual identity / vanilla-placeholder debt: closed and accepted;
+- M24 release metadata, license-facing files and production-JAR audit: closed;
+- historical-world migration gate: 13/13 retained copies passed;
+- official Jade/JEI runtime gate: closed;
+- dual-client shared-airship/data-safety gate: closed;
+- final Windows presentation/log gate: closed.
 
-## M24 RC acceptance boundary
-
-The current Linux workspace does not contain the historical M2→M23 user worlds or the previously accepted official Jade/JEI runtime JARs. M24 will provide automated coverage and Windows acceptance tooling, but the final historical-save and official compatibility-runtime checks must be executed on the user's retained Windows environment.
+No known release-blocking gameplay, data-safety, compatibility or presentation defect remains in the accepted `1.0.0-rc.1` source.
