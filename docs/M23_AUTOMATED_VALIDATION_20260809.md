@@ -1,19 +1,29 @@
-# M23 Automated Validation — 2026-08-09
+# M23 Rev2 Automated Validation — 2026-08-09
 
-Environment: Minecraft 1.21.1, NeoForge 21.1.244, Java 21, Gradle 9.2.1, Linux Xvfb + Mesa llvmpipe. Offline validation helpers remained outside the project.
+Candidate: M23 Visual Identity Texture Redraw Rev2, based on accepted M22.
+
+## Vanilla texture audit
+
+Actual cached Minecraft 1.21.1 client JAR SHA-1: `30c73b1c5da787909b2f73340419fdf13b9def88`.
+
+- vanilla item PNG: 605 / 605 are 16×16;
+- vanilla block PNG: 963 are 16×16;
+- 49 block exceptions are animated/multi-frame resources.
+
+Vanilla PNGs were inspected only as a technical/style reference and are not copied into the Sky Remnants artifacts.
 
 ## Results
 
 - JUnit: 71/71, 24 suites, zero failures/errors/skips.
-- Final `clean build`: passed.
-- Production JAR: 517,008 bytes, 441 entries, SHA-256 `396029baa6ff94a745de1853ad9425f391404ff61175068a5b2a7127c3c9830c`.
+- `clean build`: passed.
+- Production JAR: 522,223 bytes, 442 entries, SHA-256 `8833132d0947e5e2601d9c4b29d32cff0489742dd82957bb3ac9c9c58f46b5e6`.
 - Release boundary: zero TestControl/GameTest forbidden entries.
-- JAR contains 67 project textures, one mod icon, custom airship renderer/model.
-- GameTest: 65/65 in 3.360 s with normal save/exit.
-- Dedicated server: reached Done, accepted stop, saved all dimensions.
-- Real Xvfb client: resource/model checks passed, TitleScreen, screenshot, OpenGL 4.5, zero new crash reports, graceful exit 0.
-- Real client + test server visual pass confirmed custom item icons, distinct machine side panels and custom `skyremnants:basic_airship` rendering.
+- JAR textures: 32 item + 34 block + 1 entity = 67 project textures; mod icon present.
+- GameTest: 65/65 in 2.835 s with normal save/exit.
+- Dedicated server: reached `Done (0.483s)!`, accepted stop, saved all dimensions, Gradle exit 0.
+- Real Xvfb client: control ready, TitleScreen, screenshot, graceful stop, exit 0, llvmpipe OpenGL 4.5.
+- Client unexpected errors: 0.
+- Resource/model log check: PASS.
+- New crash report check: PASS.
 
-One earlier strict headless exit produced a transient OpenAL `Stop: Invalid name parameter`. No whitelist was added; an identical rerun completed with `HEADLESS_CLIENT_UNEXPECTED_ERRORS=0`. No M23 resource/renderer error accompanied the transient audio shutdown message.
-
-Compatibility remains unchanged: registry IDs, recipes, network payloads, `SkyWorldData` version 9, airship slots, `supply_manifest` and save format.
+Rev2 changes the project visual PNG set and adds a reproducible texture generator in the full source artifact. Gameplay/save/network/registry semantics are unchanged: `SkyWorldData` version 9, airship slots, `supply_manifest`, recipes and payloads remain unchanged.
