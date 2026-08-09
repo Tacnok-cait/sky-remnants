@@ -1,8 +1,8 @@
-# M23 Local Acceptance Checklist
+# M23 Rev2 Local Acceptance Checklist
 
-Status: **automated validation passed; user-local Windows/visual acceptance pending.**
+Status: **Rev2 automated/Linux real-client validation passed; user-local Windows/visual acceptance pending.**
 
-M23 is visual-only; a complete replay of the 0–6h progression is not required.
+M23 Rev2 is visual-only; a complete replay of the 0–6h progression is not required.
 
 ## Build
 
@@ -17,14 +17,17 @@ $env:GRADLE_USER_HOME = "D:\workbuddy\.gradle-user-home-skyremnants"
 
 Expected: JUnit 71/71, GameTest 65/65, clean build/release-JAR verification pass, no missing model/texture/crash.
 
-## Visual
+## Rev2 visual review
 
-- [ ] project mod icon displays;
-- [ ] core resources/mineral samples/modules/tools use project icons instead of vanilla placeholders;
-- [ ] important machines are distinguishable from normal horizontal eye level;
-- [ ] pipe/logistics visuals fit the same material family;
-- [ ] basic airship uses the custom hover-skiff model/texture, not an oak boat;
-- [ ] reinforced airship shows extra armor geometry if convenient to test.
+- [ ] core fragments/resources look like pixel-art objects rather than flat UI symbols;
+- [ ] iron/copper/gold/lapis samples share a family but remain easy to distinguish;
+- [ ] airship modules share a mechanical-cartridge family while retaining distinct symbols/accent colors;
+- [ ] wrench/cage/airship components no longer resemble vanilla placeholders;
+- [ ] machine surfaces show seams/rivets/wear/recessed functional panels;
+- [ ] important machines remain distinct at normal horizontal eye level;
+- [ ] pipe/logistics visuals fit the same old-machine material family;
+- [ ] basic airship still uses the custom hover-skiff model/texture, not an oak boat;
+- [ ] project mod icon displays.
 
 ## Regression
 
