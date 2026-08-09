@@ -20,46 +20,51 @@ Authoritative source archive:
 - M21 first-release design reconciliation/deadlock recovery: accepted 2026-08-09.
 - M22 production GameTest isolation: accepted 2026-08-09.
 
-## M23 — First-release visual identity
+## Current candidate — M23 Visual Identity Rev2
 
-**Status: automated/real-client candidate validation passed on 2026-08-09; user-local Windows/visual acceptance pending. M22 remains authoritative.**
+Status: **automated and Linux real-client validation passed; user-local Windows/visual acceptance pending.**
 
-Scope:
+Rev2 supersedes the first M23 visual candidate.
 
-- no gameplay additions;
-- 32 project-owned 16×16 standalone item textures;
-- 34 project-owned 16×16 block textures;
-- custom 64×64 basic-airship entity texture;
-- custom `BasicAirshipModel` / `BasicAirshipRenderer`, replacing the vanilla boat visual placeholder without changing airship physics or persistence;
-- reinforced state shows additional armor geometry;
-- 128×128 project mod icon;
-- existing GUI/HUD behavior retained;
-- important machines receive distinct eye-level side-panel visuals.
+Implemented:
 
-Compatibility:
-
-- no registry, recipe, payload, NBT or save-format changes;
-- `SkyWorldData` remains version 9;
-- no save migration;
-- airship real slots 0–90;
-- player menu slots 91–126;
-- M19 supply ghost slots 127–130;
-- `supply_manifest` unchanged.
+- direct Minecraft 1.21.1 texture-dimension audit;
+- 32 project-owned item textures redrawn at 16×16;
+- 34 project-owned block textures redrawn at 16×16;
+- custom basic-airship model/renderer/entity texture retained;
+- reinforced visual armor retained;
+- project mod icon;
+- reproducible texture generator in the full source artifact;
+- visual resource regression tests.
 
 Validation:
 
-- JUnit 71/71 in 24 suites;
-- final `clean build` passed;
-- production JAR 517,008 bytes / 441 entries / zero TestControl/GameTest forbidden entries;
-- GameTest 65/65 in 3.360 s with normal exit;
-- dedicated server reached Done and saved/stopped normally;
-- real Xvfb client passed resource/model/crash checks and exited cleanly;
-- real client + test server visual pass confirmed custom item icons, distinct machine side panels and custom airship rendering.
+- JUnit 71/71;
+- clean build passed;
+- release-JAR TestControl/GameTest forbidden entries 0;
+- GameTest 65/65 in 2.835 s;
+- dedicated server reached Done (0.483s), saved and stopped normally;
+- real Xvfb client reached TitleScreen, screenshot, graceful quit, exit 0;
+- resource/model/crash checks passed.
 
-Candidate artifacts:
+Rev2 artifacts:
 
-- full project SHA-256 `fcee74d5adbfa0e44eace5e39215002fc79046783434813ccb215eb827442d69`;
-- M22→M23 incremental SHA-256 `365c8007bfd4b4f3bdbd4f2f76410e3ff50605312964b1ea3cb2dcf4ba4706c2`;
-- candidate JAR SHA-256 `396029baa6ff94a745de1853ad9425f391404ff61175068a5b2a7127c3c9830c`.
+- full project SHA-256 `da3b839285af45a47c06388d27f4146ad636a79f90ff1111ee74b69114eecd85`;
+- M22→M23 Rev2 incremental SHA-256 `ca5c912ebe1640863751f99a50b36cdfaf02c420b8168031ce6d397ee26509a8`;
+- candidate JAR SHA-256 `8833132d0947e5e2601d9c4b29d32cff0489742dd82957bb3ac9c9c58f46b5e6`.
 
-After M23 user acceptance, M24 is the first-release RC closure/audit milestone. Long-term 6–15h and 15h+ content remains out of scope before RC.
+Compatibility remains identical to M22 gameplay/save/network semantics:
+
+- no registry ID changes;
+- no recipe changes;
+- no payload changes;
+- `SkyWorldData` version 9;
+- no save migration;
+- airship real slots 0–90;
+- player slots 91–126;
+- supply ghost slots 127–130;
+- `supply_manifest` unchanged.
+
+## Next
+
+After M23 user acceptance: M24 first-release Release Candidate closure/audit. No 6–15h or 15h+ gameplay expansion before RC.
