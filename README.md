@@ -1,28 +1,30 @@
-# Sky Remnants / 天穹残岛
+# Sky Remnants — M23 Visual Identity Rev2 Candidate
 
-Minecraft Java Edition 1.21.1 + NeoForge 21.1.244 mod project.
+Authoritative user-accepted baseline: **M22 final verified / accepted 2026-08-09**.
 
-## Authoritative baseline
+Current development: **M23 visual identity Rev2 — automated/Linux real-client validation passed; user-local Windows/visual acceptance pending.**
 
-**M22 final verified — accepted 2026-08-09.**
+Rev2 supersedes the first M23 visual candidate. The redraw was based on a direct audit of the actual Minecraft 1.21.1 client texture dimensions and pixel density, while keeping all Sky Remnants art original.
 
-Authoritative accepted source archive:
+## Rev2 summary
 
-- `skyremnants-m22-final-verified-full-project-20260809.zip`
-- SHA-256 `09a957807867b201c52bd07453a3969d1aa2d4059f714c91a5ba0e95a0592cf8`
-- final JAR SHA-256 `c9ae2667fa710d0b9ad5a60a7b358db9d5078d32b63285f86d61474585bf52c0`
+- 32 project-owned 16×16 item textures, redrawn;
+- 34 project-owned 16×16 block textures, redrawn;
+- existing custom 64×64 airship entity texture/model/renderer retained;
+- 128×128 project mod icon;
+- reproducible `scripts/generate-m23-textures.py` in the full source artifact;
+- no gameplay/save/network/registry changes.
 
-M22 adds no gameplay. It isolates development-only GameTest Java/data from the production JAR while preserving the full development GameTest suite.
+Minecraft 1.21.1 audit result:
 
-Accepted evidence:
+- vanilla item PNG: 605 / 605 are 16×16;
+- vanilla block PNG: 963 are 16×16; 49 are animated/multi-frame exceptions.
 
-- JUnit 66/66, 23 suites;
-- `clean build` passed;
-- release JAR: 365 entries, zero TestControl/GameTest forbidden entries;
-- GameTest 65/65 in 1.798 s;
-- dedicated server passed;
-- real Xvfb + llvmpipe client reached TitleScreen and exited cleanly;
-- user installed and validated M22 successfully on 2026-08-09.
+Rev2 artifacts:
+
+- full project SHA-256 `da3b839285af45a47c06388d27f4146ad636a79f90ff1111ee74b69114eecd85`;
+- M22→M23 Rev2 incremental SHA-256 `ca5c912ebe1640863751f99a50b36cdfaf02c420b8168031ce6d397ee26509a8`;
+- candidate JAR SHA-256 `8833132d0947e5e2601d9c4b29d32cff0489742dd82957bb3ac9c9c58f46b5e6`.
 
 ## Cross-conversation entry
 
@@ -32,7 +34,9 @@ Read:
 2. `docs/PROJECT_STATUS.md`
 3. `docs/NEXT_WORK.md`
 4. `docs/KNOWN_ISSUES.md`
-5. `docs/M22_ACCEPTANCE_RESULT_2026-08-09.md`
-6. `docs/M22_FINALIZATION_20260809.md`
+5. `docs/M23_VANILLA_TEXTURE_AUDIT_20260809.md`
+6. `docs/M23_TEXTURE_REDRAW_REV2_20260809.md`
+7. `docs/M23_AUTOMATED_VALIDATION_20260809.md`
+8. `docs/M23_ACCEPTANCE_CHECKLIST.md`
 
-`main` is the latest user-accepted milestone status. The complete accepted source ZIP remains the authoritative source snapshot until the initial full binary-safe source import is completed.
+M22 remains authoritative until user-local M23 acceptance. Complete ZIP artifacts remain the source authority while GitHub is the cross-conversation status/candidate index.

@@ -20,37 +20,51 @@ Authoritative source archive:
 - M21 first-release design reconciliation/deadlock recovery: accepted 2026-08-09.
 - M22 production GameTest isolation: accepted 2026-08-09.
 
-## M22 accepted scope
+## Current candidate — M23 Visual Identity Rev2
 
-- no gameplay additions;
-- production `main` excludes `SkyRemnantsGameTests`, `VoidRescueGameTests` and both GameTest empty NBT templates;
-- development-only `gameTestSupport` owns those legacy-path files;
-- NeoForge development runs still include the full GameTest support;
-- `verifyReleaseJarContents` rejects TestControl and GameTest leakage.
+Status: **automated and Linux real-client validation passed; user-local Windows/visual acceptance pending.**
 
-Automated evidence:
+Rev2 supersedes the first M23 visual candidate.
 
-- JUnit 66/66, 23 suites;
-- `clean build` passed;
-- release JAR 483,264 bytes / 365 entries / zero TestControl or GameTest forbidden entries;
-- GameTest 65/65 in 1.798 s;
-- dedicated server reached `Done (0.321s)!` and stopped/saved normally;
-- real Linux Xvfb client reached TitleScreen and exited cleanly.
+Implemented:
 
-User-local installation and validation passed on 2026-08-09. See `M22_ACCEPTANCE_RESULT_2026-08-09.md` and `M22_FINALIZATION_20260809.md`.
+- direct Minecraft 1.21.1 texture-dimension audit;
+- 32 project-owned item textures redrawn at 16×16;
+- 34 project-owned block textures redrawn at 16×16;
+- custom basic-airship model/renderer/entity texture retained;
+- reinforced visual armor retained;
+- project mod icon;
+- reproducible texture generator in the full source artifact;
+- visual resource regression tests.
 
-## Compatibility
+Validation:
+
+- JUnit 71/71;
+- clean build passed;
+- release-JAR TestControl/GameTest forbidden entries 0;
+- GameTest 65/65 in 2.835 s;
+- dedicated server reached Done (0.483s), saved and stopped normally;
+- real Xvfb client reached TitleScreen, screenshot, graceful quit, exit 0;
+- resource/model/crash checks passed.
+
+Rev2 artifacts:
+
+- full project SHA-256 `da3b839285af45a47c06388d27f4146ad636a79f90ff1111ee74b69114eecd85`;
+- M22→M23 Rev2 incremental SHA-256 `ca5c912ebe1640863751f99a50b36cdfaf02c420b8168031ce6d397ee26509a8`;
+- candidate JAR SHA-256 `8833132d0947e5e2601d9c4b29d32cff0489742dd82957bb3ac9c9c58f46b5e6`.
+
+Compatibility remains identical to M22 gameplay/save/network semantics:
 
 - no registry ID changes;
-- no recipe/gameplay changes;
-- no network payload changes;
-- `SkyWorldData` remains version 9;
+- no recipe changes;
+- no payload changes;
+- `SkyWorldData` version 9;
 - no save migration;
 - airship real slots 0–90;
-- player menu slots 91–126;
-- M19 supply ghost slots 127–130;
+- player slots 91–126;
+- supply ghost slots 127–130;
 - `supply_manifest` unchanged.
 
-## Next development
+## Next
 
-M23 — first-release presentation and RC closure. Do not expand into long-term 6–15h or 15h+ systems before the first-release RC.
+After M23 user acceptance: M24 first-release Release Candidate closure/audit. No 6–15h or 15h+ gameplay expansion before RC.
