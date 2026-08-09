@@ -14,7 +14,20 @@ Verified behavior:
 
 This remains a UI synchronization observation, not a data-integrity problem.
 
-## Release state
+## Closed: first-release deadlock recovery
 
-- M21 requires no save migration.
-- M22 candidate changes only development/release packaging boundaries and is not expected to require migration.
+M21 is accepted. Lost starting lava has an expensive emergency recovery recipe, and qualifying distant ecology islands provide one-time chicken/sheep recovery fauna.
+
+## Closed: development test code in production JAR
+
+M20 isolates TestControl. M22 isolates GameTest Java/classes and GameTest structure templates while retaining the development test suite. Release-JAR verification guards against regression.
+
+## M23 candidate: visual identity
+
+The former vanilla-boat/basic-item presentation debt is addressed by the current M23 candidate through project-owned item/block textures, a custom basic-airship model/renderer/texture, and a project mod icon.
+
+M22 remains authoritative until M23 user-local visual acceptance passes.
+
+## Deferred to M24 RC audit
+
+The project still declares `All Rights Reserved`. Final license-facing release text/files, distribution metadata audit, complete old-save/multiplayer/Jade/JEI regression matrix and first-release RC packaging are deliberately deferred to M24 rather than expanding M23.
