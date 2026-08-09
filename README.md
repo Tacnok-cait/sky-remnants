@@ -1,37 +1,31 @@
 # Sky Remnants / 天穹残岛
 
-Minecraft Java Edition 1.21.1 + NeoForge 21.1.244.
+Sky Remnants is a Minecraft Java Edition 1.21.1 + NeoForge sky-island survival mod focused on island building, approachable automation and logistics, modular airship exploration, sparse valuable outer islands, and voluntary combat challenges.
 
-## Accepted baseline
+## First release candidate
 
-**M23 — First-release visual identity Rev2**
+**1.0.0-rc.1 / M24 — accepted and closed on 2026-08-09.**
 
-Status: **accepted and closed on 2026-08-09**.
+M24 is release engineering and acceptance closure only. It adds no new progression system and introduces no registry, recipe, network, NBT, SavedData or save-format migration.
 
-M23 is presentation-only. It does not change gameplay, registry IDs, networking, NBT, SavedData schema, recipes, airship slots or save migration.
+The accepted source includes the final Windows visual fixes to the airship, challenge pedestals and project-owned pixel-art assets.
 
-Accepted visual scope:
+## Requirements
 
-- 32 project-owned 16×16 standalone item textures;
-- 34 project-owned 16×16 block textures;
-- custom 64×64 basic-airship entity texture;
-- custom `BasicAirshipModel` and `BasicAirshipRenderer`;
-- reinforced-state armor geometry;
-- 128×128 mod icon;
-- distinct eye-level machine side panels;
-- reproducible `scripts/generate-m23-textures.py`.
+- Minecraft Java Edition 1.21.1
+- NeoForge 21.1.244 project baseline
+- Java 21
 
-Validation before acceptance:
+Optional integrations: Jade and JEI. Neither is a hard dependency. M24 Windows acceptance verified Jade 15.10.0+neoforge and JEI 19.21.0.247.
 
-- JUnit 71/71;
-- clean build passed;
-- GameTest 65/65;
-- dedicated server passed;
-- real Linux Xvfb + llvmpipe client passed resource/model/crash checks and exited 0;
-- user accepted the Rev2 visual direction on 2026-08-09.
+## Verification
 
-No additional Windows build log was supplied for M23; the full Windows/legacy-save/compatibility sweep is part of M24 RC acceptance.
+Windows final acceptance closed historical-save migration, official Jade/JEI, one-server/two-client data safety and final presentation/log review. The same returned accepted source was independently revalidated on Linux with 75/75 JUnit, 65/65 GameTest, dedicated server and a real Xvfb + llvmpipe client.
 
-## Next
+Read `docs/PROJECT_STATUS.md`, `docs/M24_LOCAL_ACCEPTANCE_RESULT_20260809.md` and `docs/M24_FINALIZATION_20260809.md` first in a new conversation.
 
-M24 is the first-release Release Candidate closure/audit milestone. No new 6–15h or 15h+ gameplay systems are added before RC.
+The complete final source ZIP remains the authoritative source snapshot; this repository is the cross-conversation status/acceptance index until a complete binary-safe source import is maintained here.
+
+## License
+
+Sky Remnants is **All Rights Reserved**. See `LICENSE` and `THIRD_PARTY_NOTICES.md` in the complete source artifact.

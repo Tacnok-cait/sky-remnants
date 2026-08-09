@@ -1,24 +1,19 @@
 # Next Work
 
-Authoritative user-accepted baseline: **M23 final verified / accepted 2026-08-09**.
+Authoritative accepted baseline: **M24 / 1.0.0-rc.1 — accepted 2026-08-09**.
 
-## M24 — first-release Release Candidate closure
+## Immediate mode: release / bug fixes only
 
-M23 is closed. M24 adds no new progression systems.
+The first-version feature slice is frozen. Do not add new progression systems to this RC line unless a release-blocking regression requires a narrowly scoped fix.
 
-Planned scope:
+Priorities:
 
-1. finalize release versioning and metadata;
-2. add explicit license/release-facing files;
-3. harden production-JAR content verification;
-4. audit bilingual resources and package contents;
-5. run JUnit, clean build, GameTest, dedicated server and real Linux client;
-6. run multiplayer data-safety regression where supported by the current environment;
-7. prepare Windows scripts/checklists for historical M2→M23 saves and official Jade/JEI runtime verification;
-8. produce the first-release RC package.
+1. preserve registry IDs, `SkyWorldData` v9, network payloads and existing save compatibility;
+2. fix only reproducible release defects found against the accepted M24 baseline;
+3. keep the release-JAR TestControl/GameTest/compat-stub boundary enforced;
+4. retain Windows + Linux smoke coverage for any RC hotfix;
+5. retain the M19 supply-menu snapshot issue as a non-blocking UI observation unless data safety changes.
 
-Final Windows acceptance remains required for historical save migration and official Jade/JEI runtime because those accepted historical worlds/mod jars are not present in the current Linux workspace.
+## Post-first-release roadmap
 
-## Explicitly out of scope before RC
-
-No larger/multiblock airships, bosses, special dimensions, advanced power/fluid/wireless logistics, endgame equipment, new progression tiers or other 6–15h/15h+ systems.
+Only after the first release is intentionally reopened for feature development should the project resume 6–15h / 15h+ content such as larger airships, harder external regions, advanced equipment, bosses/endgame or other previously deferred systems. These are not part of `1.0.0-rc.1`.
