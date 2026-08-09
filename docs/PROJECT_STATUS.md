@@ -20,30 +20,25 @@ Authoritative source archive:
 - M21 first-release design reconciliation/deadlock recovery: accepted 2026-08-09.
 - M22 production GameTest isolation: accepted 2026-08-09.
 
-## M22 accepted scope
+## M23 — First-release visual identity
+
+**Status: automated/real-client candidate validation passed on 2026-08-09; user-local Windows/visual acceptance pending. M22 remains authoritative.**
+
+Scope:
 
 - no gameplay additions;
-- production `main` excludes `SkyRemnantsGameTests`, `VoidRescueGameTests` and both GameTest empty NBT templates;
-- development-only `gameTestSupport` owns those legacy-path files;
-- NeoForge development runs still include the full GameTest support;
-- `verifyReleaseJarContents` rejects TestControl and GameTest leakage.
+- 32 project-owned 16×16 standalone item textures;
+- 34 project-owned 16×16 block textures;
+- custom 64×64 basic-airship entity texture;
+- custom `BasicAirshipModel` / `BasicAirshipRenderer`, replacing the vanilla boat visual placeholder without changing airship physics or persistence;
+- reinforced state shows additional armor geometry;
+- 128×128 project mod icon;
+- existing GUI/HUD behavior retained;
+- important machines receive distinct eye-level side-panel visuals.
 
-Automated evidence:
+Compatibility:
 
-- JUnit 66/66, 23 suites;
-- `clean build` passed;
-- release JAR 483,264 bytes / 365 entries / zero TestControl or GameTest forbidden entries;
-- GameTest 65/65 in 1.798 s;
-- dedicated server reached `Done (0.321s)!` and stopped/saved normally;
-- real Linux Xvfb client reached TitleScreen and exited cleanly.
-
-User-local installation and validation passed on 2026-08-09. See `M22_ACCEPTANCE_RESULT_2026-08-09.md` and `M22_FINALIZATION_20260809.md`.
-
-## Compatibility
-
-- no registry ID changes;
-- no recipe/gameplay changes;
-- no network payload changes;
+- no registry, recipe, payload, NBT or save-format changes;
 - `SkyWorldData` remains version 9;
 - no save migration;
 - airship real slots 0–90;
@@ -51,6 +46,20 @@ User-local installation and validation passed on 2026-08-09. See `M22_ACCEPTANCE
 - M19 supply ghost slots 127–130;
 - `supply_manifest` unchanged.
 
-## Next development
+Validation:
 
-M23 — first-release presentation and RC closure. Do not expand into long-term 6–15h or 15h+ systems before the first-release RC.
+- JUnit 71/71 in 24 suites;
+- final `clean build` passed;
+- production JAR 517,008 bytes / 441 entries / zero TestControl/GameTest forbidden entries;
+- GameTest 65/65 in 3.360 s with normal exit;
+- dedicated server reached Done and saved/stopped normally;
+- real Xvfb client passed resource/model/crash checks and exited cleanly;
+- real client + test server visual pass confirmed custom item icons, distinct machine side panels and custom airship rendering.
+
+Candidate artifacts:
+
+- full project SHA-256 `fcee74d5adbfa0e44eace5e39215002fc79046783434813ccb215eb827442d69`;
+- M22→M23 incremental SHA-256 `365c8007bfd4b4f3bdbd4f2f76410e3ff50605312964b1ea3cb2dcf4ba4706c2`;
+- candidate JAR SHA-256 `396029baa6ff94a745de1853ad9425f391404ff61175068a5b2a7127c3c9830c`.
+
+After M23 user acceptance, M24 is the first-release RC closure/audit milestone. Long-term 6–15h and 15h+ content remains out of scope before RC.
