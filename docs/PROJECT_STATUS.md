@@ -49,6 +49,16 @@ The Windows-accepted source includes final presentation corrections beyond the i
 
 The accepted M19 supply-menu snapshot behavior remains UI-only: an already-open second menu does not live-refresh another client's ghost-target edit until reopened. Final M24 multiplayer acceptance reconfirmed no duplication, loss, stale-close overwrite or persistence failure.
 
-## Next phase
+## Post-release roadmap
 
-First-version feature development is frozen. Continue in release/bug-fix mode; 6–15h and 15h+ progression systems belong to post-first-release milestones.
+First-version feature development is frozen. The next feature phase is now tracked in:
+
+`docs/POST_RELEASE_DEVELOPMENT_ROADMAP.md`
+
+Immediate next milestone:
+
+**M25 — Post-release compatibility foundation**
+
+M25 must be completed and accepted before adding new 6–15h gameplay content such as Deep Crystal Fault islands, Nether-origin fragment islands, new mob samples or airship expansion.
+
+Do not begin M26+ scope early.
