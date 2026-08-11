@@ -3,7 +3,8 @@
   "status": "accepted",
   "accepted_date": "2026-08-11",
   "encoding": "base64",
-  "parts": 11,
+  "parts": 13,
+  "part_order": ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09a", "09b", "09c", "10"],
   "base64_characters": 92240,
   "input_baseline": {
     "file": "skyremnants-m24-final-accepted-full-project-20260809.zip",
