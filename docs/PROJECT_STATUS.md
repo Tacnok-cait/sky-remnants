@@ -2,63 +2,85 @@
 
 ## Authoritative accepted baseline
 
-**M24 — First-release RC closure / 1.0.0-rc.1**
+**M25 — Post-release compatibility foundation**
 
-Status: **accepted and closed on 2026-08-09**.
+Status: **accepted and closed on 2026-08-11**.
 
-The authoritative runtime source is the user-returned M24 final accepted source, followed only by historical/status-document restoration for archival completeness.
+The authoritative runtime/development baseline is the M25 final accepted source
+produced from the M24 final accepted archive plus the M25 compatibility-foundation
+implementation and the final acceptance/status documentation.
 
-## Windows final acceptance
+M24 remains the immutable first-release RC reference baseline; M25 is the current
+post-release development baseline for all subsequent feature work.
 
-- JUnit 75/75, 25 suites;
-- clean build and `verifyReleaseJarContents`: PASS;
-- GameTest 65/65 in 2.412 s;
-- dedicated server ready / graceful stop / exit 0;
-- 13 retained historical-world copies: 13/13 load/save/stop PASS;
-- Jade 15.10.0+neoforge and JEI 19.21.0.247 runtime: PASS;
-- one real dedicated server + two independent clients: shared-airship/data-safety and restart persistence PASS;
-- final Windows visual/log review: PASS, no P0/P1 presentation defect, crash reports 0.
+## M25 acceptance evidence
 
-## Linux revalidation of returned accepted source
+### User-local final acceptance
 
-- JUnit 75/75;
-- build + release-JAR verification: PASS;
-- production JAR: 523,414 bytes / 446 entries / SHA-256 `5fc0377ad3b395cf527a0c9c13a5881fe36b9ef9b9627e5217c835c32e0b1c69`;
-- forbidden TestControl/GameTest/Jade/JEI-stub entries: 0;
-- GameTest 65/65 in 2.502 s;
-- fresh dedicated server reached `Done (13.065s)!`, stopped and saved all dimensions;
-- real Xvfb + llvmpipe client reached TitleScreen, passed model/resource/crash checks and exited 0.
+- User reported the complete M25 local acceptance run as **PASS** on 2026-08-11.
+- A copied accepted M24 world was used as the migration acceptance gate.
+- M25 is therefore no longer a candidate/pending milestone.
 
-## Final acceptance fixes retained
+### Linux automated validation retained from the candidate
 
-The Windows-accepted source includes final presentation corrections beyond the initial RC candidate: revised basic-airship geometry/UV usage and reinforced silhouette, distinct meadow/wind challenge-pedestal side textures, refreshed project-owned pixel art and the corresponding M23 resource-test updates.
+- JUnit: **80/80**, 0 failures/errors;
+- clean build: PASS;
+- `verifyReleaseJarContents`: PASS;
+- GameTest: **67/67 in 1.903 s**;
+- production JAR: 527,392 bytes / 449 entries / SHA-256
+  `302e6e31968fd7c144ef5d0f18367536df0846eda3e51bead5de33852c797e22`;
+- dedicated server: reached `Done (0.384s)!`, then stopped/saved normally;
+- real Xvfb + Mesa llvmpipe client: TitleScreen, screenshot and graceful exit PASS;
+- unexpected client errors: 0;
+- missing model/texture/resource regressions: 0;
+- new crash reports: 0.
 
-## Compatibility
+## M25 compatibility contract
 
 - Minecraft Java Edition 1.21.1;
 - NeoForge 21.1.244 baseline;
 - Java 21;
-- no registry ID changes;
-- no M24 recipe/progression changes;
-- no network payload changes;
-- `SkyWorldData` remains version 9;
-- no M24 save migration;
-- airship slots and `supply_manifest` unchanged.
+- M24 accepted registry IDs remain frozen;
+- airship payload id remains `skyremnants:airship_input` with protocol version `1`;
+- airship real container size remains 91, accepted slots 0-90 unchanged;
+- module slots 28, 29, 36 and logistics slot 90 remain unchanged;
+- `supply_manifest` remains unchanged;
+- M24 `SkyWorldData` version 9 is explicitly migrated to M25 version 10;
+- v9 -> v10 preserves accepted field meanings and gameplay state;
+- newer-than-supported world-data versions are rejected instead of silently downgraded;
+- outer-island distance/tier metadata is derived/read-only and does not alter the
+  accepted M24 island id/position/shape algorithm.
 
-## Known non-blocker
+## Source archive
 
-The accepted M19 supply-menu snapshot behavior remains UI-only: an already-open second menu does not live-refresh another client's ghost-target edit until reopened. Final M24 multiplayer acceptance reconfirmed no duplication, loss, stale-close overwrite or persistence failure.
+The exact M24 final -> M25 final accepted incremental archive is stored in
+`.source-archives/m25-final/` as binary-safe Base64 parts with a reconstruction
+script and SHA-256 manifest.
 
-## Post-release roadmap
+- M25 incremental SHA-256: `606f8caab22033a9df864f400f8351626369de1aa6e74ffc50bdecf7065a5aca`;
+- M25 final accepted full-project SHA-256: `4b351b9d7a4e582e71763257a0d24b2a8eda9ccaa233cdf948df50c1efeebb7a`.
 
-First-version feature development is frozen. The next feature phase is now tracked in:
+## M25 scope closure
 
-`docs/POST_RELEASE_DEVELOPMENT_ROADMAP.md`
+M25 added compatibility/migration infrastructure only. It did **not** add:
 
-Immediate next milestone:
+- Deep Crystal Fault or diamond progression;
+- new island families/resources/mob samples;
+- scanner gameplay expansion;
+- airship retrofit content;
+- new blocks/items/entities/menus/recipes for M26 gameplay.
 
-**M25 — Post-release compatibility foundation**
+## Known non-blocker retained
 
-M25 must be completed and accepted before adding new 6–15h gameplay content such as Deep Crystal Fault islands, Nether-origin fragment islands, new mob samples or airship expansion.
+The accepted M19 behavior remains: an already-open second supply menu does not
+live-refresh another client's ghost-target edit until reopened. Server state is
+authoritative; previous multiplayer acceptance established no duplication, loss,
+stale-close overwrite or persistence failure.
 
-Do not begin M26+ scope early.
+## Next phase
+
+**M26 — Deep Crystal Fault + diamond progression.**
+
+M26 must branch from this accepted M25 source. Before adding content, re-check the
+M25 compatibility contract and existing worldgen extension point. Do not begin M27
+remote-outpost/scanner expansion until M26 itself is implemented and accepted.
