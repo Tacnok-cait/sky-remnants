@@ -1,0 +1,24 @@
+{
+  "milestone": "M25",
+  "status": "accepted",
+  "accepted_date": "2026-08-11",
+  "encoding": "base64",
+  "parts": 13,
+  "part_order": ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09a", "09b", "09c", "10"],
+  "base64_characters": 92240,
+  "input_baseline": {
+    "file": "skyremnants-m24-final-accepted-full-project-20260809.zip",
+    "sha256": "0136bbcaecf0ac3b52222884950d723a4bea7567ad296df7719913b9f2ed88c5"
+  },
+  "incremental": {
+    "file": "skyremnants-m25-final-accepted-update-from-m24-final-20260811.zip",
+    "bytes": 69180,
+    "sha256": "606f8caab22033a9df864f400f8351626369de1aa6e74ffc50bdecf7065a5aca"
+  },
+  "result": {
+    "file": "skyremnants-m25-final-accepted-full-project-20260811.zip",
+    "sha256": "4b351b9d7a4e582e71763257a0d24b2a8eda9ccaa233cdf948df50c1efeebb7a"
+  },
+  "sky_world_data_version": 10,
+  "next_milestone": "M26 Deep Crystal Fault + diamond progression"
+}
