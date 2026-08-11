@@ -1,0 +1,41 @@
+{
+  "milestone": "M26 final accepted",
+  "date": "2026-08-11",
+  "baseline": {
+    "name": "M25 final accepted",
+    "full_project_sha256": "4b351b9d7a4e582e71763257a0d24b2a8eda9ccaa233cdf948df50c1efeebb7a"
+  },
+  "incremental_zip": {
+    "filename": "skyremnants-m26-final-accepted-update-from-m25-final-20260811.zip",
+    "sha256": "015117698d1ed5036dab4330b0ce1c8d7c30a584076420bbb379db62882ce685",
+    "size_bytes": 109275
+  },
+  "final_full_project": {
+    "filename": "skyremnants-m26-deep-crystal-diamond-final-accepted-full-project-20260811.zip",
+    "sha256": "5e162406a23b5d84f2f1890ae8bc93cba0a710d621375a8ff3a899a874f948ec",
+    "size_bytes": 846766
+  },
+  "accepted_jar": {
+    "filename": "skyremnants-1.0.0-rc.1-m26-final-accepted.jar",
+    "sha256": "8a2791b77b2ab89932cd55cfd2c699d47bb7bf41d119aab06c5618df1fdfec05",
+    "size_bytes": 532594
+  },
+  "base64_parts": [
+    {"filename":"m26-update.part-00.b64","sha256":"dc2e3fcefb183f4d12c28ff1f27ab590e764087078c3c3af59196ebba87f1908","size_bytes":12000},
+    {"filename":"m26-update.part-01.b64","sha256":"8d0fd30ff1ded86f565d0f5e7591319bbe61eec9e42cfddb3e043dda5c83b694","size_bytes":12000},
+    {"filename":"m26-update.part-02.b64","sha256":"7ebce714c036ab11fc5c1a8cc36b17c3d141d19b00210bf2f38b06c991029e32","size_bytes":12000},
+    {"filename":"m26-update.part-03.b64","sha256":"bf34347afe89160ce813d2745703c6bc9eec3470be7e4bab62239f27b497539d","size_bytes":12000},
+    {"filename":"m26-update.part-04.b64","sha256":"47595fe81529b1f0a72875281f42ebc8f6946a49b0a3d08bdc63c65168e602c8","size_bytes":12000},
+    {"filename":"m26-update.part-05.b64","sha256":"f118855392a243491c42263afdc773fbddbf9b8bceb99e2eea9be50d48c053fe","size_bytes":12000},
+    {"filename":"m26-update.part-06.b64","sha256":"3c4687cd8d200f2b9ba41f917762483d01a7ba202e2ccf992997383b8b975703","size_bytes":12000},
+    {"filename":"m26-update.part-07.b64","sha256":"7b47862c780ec5f52edd5dd2ed1b64f446bcb111f8d6eb7a4bdc63c0eb8463e1","size_bytes":12000},
+    {"filename":"m26-update.part-08.b64","sha256":"f951a1f0c0d46804a9fb362e54a26434b4228021c65004a7c631d3e399e3d618","size_bytes":12000},
+    {"filename":"m26-update.part-09.b64","sha256":"63d3bfddfbc87d74389a77b48d11059d705f41e4eec2b485462c60f7d6d58b72","size_bytes":12000},
+    {"filename":"m26-update.part-10.b64","sha256":"07532ac331c1b629a57a29e6141e8c00bdf8a39a8818b5ab09fe067a41838b86","size_bytes":12000},
+    {"filename":"m26-update.part-11.b64","sha256":"e01c627a45b949e9b132221f7c16c5b0071286d82dc64bd6505345610f93696b","size_bytes":12000},
+    {"filename":"m26-update.part-12.b64","sha256":"2d8e61762161a43a7160e151a2022d261bfd5e36d26f5fb73c57ba191359b30e","size_bytes":1700}
+  ],
+  "part_order": [
+    "m26-update.part-00.b64","m26-update.part-01.b64","m26-update.part-02.b64","m26-update.part-03.b64","m26-update.part-04.b64","m26-update.part-05.b64","m26-update.part-06.b64","m26-update.part-07.b64","m26-update.part-08.b64","m26-update.part-09.b64","m26-update.part-10.b64","m26-update.part-11.b64","m26-update.part-12.b64"
+  ]
+}

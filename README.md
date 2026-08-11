@@ -4,11 +4,13 @@ Sky Remnants is a Minecraft Java Edition 1.21.1 + NeoForge sky-island survival m
 
 ## Accepted development baseline
 
-**M25 — Post-release compatibility foundation — accepted and closed on 2026-08-11.**
+**M26 — Deep Crystal Fault + diamond progression — accepted and closed on 2026-08-11.**
 
-M24 / `1.0.0-rc.1` remains the immutable first-release RC reference. M25 is the current post-release development baseline and adds compatibility/migration infrastructure without adding M26 gameplay content.
+M24 / `1.0.0-rc.1` remains the immutable first-release RC reference. M25 established the post-release compatibility/migration foundation. M26 is now the current authoritative post-release development baseline.
 
-M25 establishes explicit `SkyWorldData` v9 -> v10 migration, freezes accepted registry/network/airship contracts, and adds derived outer-island distance/tier metadata without changing accepted M24 island IDs, coordinates or shapes.
+M26 adds the first 6–15h resource expansion while preserving the M25 compatibility contract: distant Deep Crystal Fault resource content, one renewable-use Diamond Mineral Sample, low-rate diamond cultivation through the existing Mineral Cultivation Bed, and Deep Crystal scan presentation without increasing the existing 600-block scanner radius.
+
+`SkyWorldData` remains v10. Accepted M24/M25 island IDs/coordinates/shapes, airship slot semantics, `supply_manifest` and existing payload identity remain unchanged. Already-generated chunks are not regenerated or overwritten.
 
 ## Requirements
 
@@ -20,17 +22,26 @@ Optional integrations: Jade and JEI. Neither is a hard dependency.
 
 ## Verification
 
-M25 automated validation passed JUnit 80/80, clean build and release-JAR verification, GameTest 67/67, dedicated-server smoke, and a real Xvfb + llvmpipe client smoke. User-local final acceptance passed on 2026-08-11, including the retained M24-world migration gate.
+M26 accepted-candidate automated validation passed JUnit 87/87, clean build and release-JAR verification, GameTest 69/69 in 1.867 s, dedicated-server smoke, and a real Xvfb + llvmpipe client smoke/resource/model/crash check. User-local final acceptance was explicitly reported PASS on 2026-08-11.
 
-Read `docs/PROJECT_STATUS.md`, `docs/NEXT_WORK.md`, `docs/M25_ACCEPTANCE_RESULT_2026-08-11.md` and `docs/M25_FINALIZATION_20260811.md` first in a new development conversation.
+Read `docs/PROJECT_STATUS.md`, `docs/NEXT_WORK.md`, `docs/M26_ACCEPTANCE_RESULT_2026-08-11.md` and `docs/M26_FINALIZATION_20260811.md` first in a new development conversation.
 
-## Binary-safe M25 source delta
+## Binary-safe M26 source delta
 
-The exact M24-final -> M25-final incremental archive is stored under `.source-archives/m25-final/` as Base64 parts with a PowerShell reconstruction script and SHA-256 manifest. The incremental SHA-256 is `606f8caab22033a9df864f400f8351626369de1aa6e74ffc50bdecf7065a5aca`; the resulting M25 final accepted full-project SHA-256 is `4b351b9d7a4e582e71763257a0d24b2a8eda9ccaa233cdf948df50c1efeebb7a`.
+The exact M25-final -> M26-final incremental archive is stored under `.source-archives/m26-final/` as Base64 parts with a PowerShell reconstruction script and SHA-256 manifest.
+
+- M25 final accepted full-project SHA-256: `4b351b9d7a4e582e71763257a0d24b2a8eda9ccaa233cdf948df50c1efeebb7a`
+- M26 final incremental ZIP SHA-256: `015117698d1ed5036dab4330b0ce1c8d7c30a584076420bbb379db62882ce685`
+- M26 final accepted full-project SHA-256: `5e162406a23b5d84f2f1890ae8bc93cba0a710d621375a8ff3a899a874f948ec`
+- Accepted M26 JAR SHA-256: `8a2791b77b2ab89932cd55cfd2c699d47bb7bf41d119aab06c5618df1fdfec05`
+
+## Accepted non-blocking M26 observation
+
+Future Deep Crystal presentation may benefit from a more strongly linear fault/rift silhouette and more concentrated amethyst/geode formations. This is recorded as a non-blocking future polish candidate, not an automatic M27 scope expansion, and any later implementation must not regenerate accepted old chunks.
 
 ## Next milestone
 
-**M26 — Deep Crystal Fault + diamond progression.** Do not start M27 remote-outpost / long-range scanner / amethyst scope before M26 acceptance.
+**M27 — Remote outposts, amethyst harvesting and long-range scanning.** Do not start M28 Mist Marsh / slime / creeper expansion before M27 acceptance.
 
 ## License
 
