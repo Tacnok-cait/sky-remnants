@@ -39,9 +39,9 @@ M24 remains the immutable first-release RC reference. M25 is the post-release co
 - airship inventory/slot semantics, payload protocol and `supply_manifest` remain unchanged;
 - no M31 airship/dockyard migration exists in M30.
 
-## Source archive
+## M30 source identity
 
-The exact M30 final accepted full-project ZIP is stored under `.source-archives/m30-final/` as binary-safe Base64 parts with a manifest and reconstruction script.
+The exact accepted source artifact is recorded in `docs/M30_SOURCE_IDENTITY_20260812.md`.
 
 - M30 final accepted full-project SHA-256: `7d096adb4314bd1ea9471d90994c47ca8b11ab46160b23642631a27052108365`;
 - M30 accepted runtime JAR SHA-256: `18b8310bd41330a30521482b6ad7b4748994e6b1fd7963c4db6a5b5f2ccc19df`.
