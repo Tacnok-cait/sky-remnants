@@ -4,13 +4,11 @@ Sky Remnants is a Minecraft Java Edition 1.21.1 + NeoForge sky-island survival m
 
 ## Accepted development baseline
 
-**M26 — Deep Crystal Fault + diamond progression — accepted and closed on 2026-08-11.**
+**M30 — Crimson/Warped ecology + Nether Wart automation + Ember Ruin Blaze challenge — accepted and closed on 2026-08-12.**
 
-M24 / `1.0.0-rc.1` remains the immutable first-release RC reference. M25 established the post-release compatibility/migration foundation. M26 is now the current authoritative post-release development baseline.
+M30 retains `SkyWorldData` v11, keeps accepted island identity stable, appends Auto Worker `NETHER_WART` at ordinal 7, and reuses the existing Wind Eye pedestal/state machine for the Ember Ruin Blaze challenge. M31 airship retrofit/dockyard content is intentionally not part of M30.
 
-M26 adds the first 6–15h resource expansion while preserving the M25 compatibility contract: distant Deep Crystal Fault resource content, one renewable-use Diamond Mineral Sample, low-rate diamond cultivation through the existing Mineral Cultivation Bed, and Deep Crystal scan presentation without increasing the existing 600-block scanner radius.
-
-`SkyWorldData` remains v10. Accepted M24/M25 island IDs/coordinates/shapes, airship slot semantics, `supply_manifest` and existing payload identity remain unchanged. Already-generated chunks are not regenerated or overwritten.
+Read `docs/PROJECT_STATUS.md`, `docs/NEXT_WORK.md`, `docs/M30_ACCEPTANCE_RESULT_20260812.md` and `docs/M30_FINALIZATION_20260812.md` before continuing development.
 
 ## Requirements
 
@@ -20,29 +18,28 @@ M26 adds the first 6–15h resource expansion while preserving the M25 compatibi
 
 Optional integrations: Jade and JEI. Neither is a hard dependency.
 
-## Verification
+## Accepted M30 validation
 
-M26 accepted-candidate automated validation passed JUnit 87/87, clean build and release-JAR verification, GameTest 69/69 in 1.867 s, dedicated-server smoke, and a real Xvfb + llvmpipe client smoke/resource/model/crash check. User-local final acceptance was explicitly reported PASS on 2026-08-11.
+- JUnit 114/114, 35 suites;
+- build + `verifyReleaseJarContents` PASS;
+- GameTest 77/77 in 2.552 s;
+- dedicated-server smoke PASS;
+- real Linux Xvfb + Mesa llvmpipe client smoke/resource/model/crash checks PASS;
+- user-local final acceptance PASS on 2026-08-12.
 
-Read `docs/PROJECT_STATUS.md`, `docs/NEXT_WORK.md`, `docs/M26_ACCEPTANCE_RESULT_2026-08-11.md` and `docs/M26_FINALIZATION_20260811.md` first in a new development conversation.
+The finalization step is documentation-only; the accepted runtime JAR is unchanged from the tested M30 candidate.
 
-## Binary-safe M26 source delta
+## Binary-safe M30 source archive
 
-The exact M25-final -> M26-final incremental archive is stored under `.source-archives/m26-final/` as Base64 parts with a PowerShell reconstruction script and SHA-256 manifest.
+The exact M30 final accepted full-project ZIP is stored under `.source-archives/m30-final/` as Base64 parts with a manifest and PowerShell reconstruction helper.
 
-- M25 final accepted full-project SHA-256: `4b351b9d7a4e582e71763257a0d24b2a8eda9ccaa233cdf948df50c1efeebb7a`
-- M26 final incremental ZIP SHA-256: `015117698d1ed5036dab4330b0ce1c8d7c30a584076420bbb379db62882ce685`
-- M26 final accepted full-project SHA-256: `5e162406a23b5d84f2f1890ae8bc93cba0a710d621375a8ff3a899a874f948ec`
-- Accepted M26 JAR SHA-256: `8a2791b77b2ab89932cd55cfd2c699d47bb7bf41d119aab06c5618df1fdfec05`
-
-## Accepted non-blocking M26 observation
-
-Future Deep Crystal presentation may benefit from a more strongly linear fault/rift silhouette and more concentrated amethyst/geode formations. This is recorded as a non-blocking future polish candidate, not an automatic M27 scope expansion, and any later implementation must not regenerate accepted old chunks.
+- M30 final accepted full-project SHA-256: `7d096adb4314bd1ea9471d90994c47ca8b11ab46160b23642631a27052108365`
+- Accepted M30 runtime JAR SHA-256: `18b8310bd41330a30521482b6ad7b4748994e6b1fd7963c4db6a5b5f2ccc19df`
 
 ## Next milestone
 
-**M27 — Remote outposts, amethyst harvesting and long-range scanning.** Do not start M28 Mist Marsh / slime / creeper expansion before M27 acceptance.
+**M31 — expedition airship retrofit, dockyard and blockade challenge.**
 
 ## License
 
-Sky Remnants is **All Rights Reserved**. See `LICENSE` and `THIRD_PARTY_NOTICES.md` in the complete source artifact.
+Sky Remnants is **All Rights Reserved**. See `LICENSE` and `THIRD_PARTY_NOTICES.md`.
