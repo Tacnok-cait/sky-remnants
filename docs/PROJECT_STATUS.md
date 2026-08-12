@@ -2,58 +2,76 @@
 
 ## Authoritative accepted baseline
 
-**M30 — Crimson/Warped ecology + Nether Wart automation + Ember Ruin Blaze challenge**
+**M31 — Expedition Airship Retrofit, Dockyard and Blockade Challenge**
 
 Status: **accepted and closed on 2026-08-12**.
 
-The authoritative runtime/development baseline is the M30 final accepted source produced from the accepted M29 source plus the accepted M30 implementation and documentation-only finalization.
+The authoritative runtime/development baseline is the M31 final accepted source, produced directly from M30 final accepted plus the user-accepted M31 implementation and documentation-only finalization.
 
-M24 remains the immutable first-release RC reference. M25 is the post-release compatibility foundation. M26 added Deep Crystal/diamond. M27 advanced `SkyWorldData` from v10 to v11. M28, M29 and M30 retain v11.
+M24 remains the immutable first-release RC reference. M25 established the post-release compatibility foundation. M26 added Deep Crystal/diamond. M27 advanced `SkyWorldData` from v10 to v11. M28, M29, M30 and M31 retain v11.
 
-## Accepted validation chain
+## M31 delivered scope
 
-- M27: JUnit 93/93, GameTest 71/71, build/release verification, dedicated server, v10→v11 migration and real-client acceptance PASS.
-- M28: JUnit 100/100, GameTest 73/73, build/release verification, dedicated server, migration and real-client acceptance PASS.
-- M29: JUnit 108/108, GameTest 75/75, build/release verification, dedicated server, migration and real-client acceptance PASS.
-- M30: JUnit 114/114, GameTest 77/77 in 2.552 s, build/release verification, dedicated-server smoke and real Xvfb + llvmpipe client smoke/resource/crash checks PASS; user-local acceptance PASS on 2026-08-12.
+- append-only `skyremnants:expedition_retrofit_kit`, available from Blockade first-clear reward and ordinary crafting;
+- Docking Base retrofit interaction for a physically docked Reinforced Airship;
+- airship entity NBT boolean `expedition_retrofit`, with missing old-save data reading as false;
+- previously reserved real slot 46 activated as expedition-only module D without changing the 91-slot container;
+- explicit maximum of three Storage Modules/storage banks retained; the fourth module slot can host other valid modules such as Fuel Tanks;
+- expedition speed/fuel tuning and conditional 2200-block Long-range Scan;
+- Blockade Outpost derived challenge profile with Pillager/Breeze/Vindicator waves, reusing the existing Wind Eye pedestal/state machine;
+- exact M30 Ember selection evaluated first so accepted Ember choices are not stolen or remapped.
 
-## M30 delivered scope
+## Accepted validation evidence
 
-- derived Crimson/Warped ecology fragments while preserving M28 Mist Marsh selections;
-- controlled Nether Wart source;
-- Auto Worker `NETHER_WART` mode appended at ordinal 7;
-- Ember Ruin challenge profile reusing the existing Wind Eye pedestal/state machine;
-- Blaze/Magma Cube encounter waves and Blaze-oriented rewards;
-- Blaze remains outside ordinary reusable sample/inducer automation;
-- scan presentation extended for Crimson/Warped/Ember content.
+### Automated validation retained from the accepted candidate
+
+- JUnit: **121/121**, 37 suites, 0 failures/errors/skips;
+- `clean build`: PASS;
+- `verifyReleaseJarContents`: PASS;
+- GameTest: **79/79 in 2.677 s**;
+- dedicated server: reached `Done (0.373s)!`, then stopped and saved normally with Gradle exit 0;
+- real Xvfb + Mesa llvmpipe client: TitleScreen/screenshot/graceful exit PASS;
+- unexpected client errors: 0;
+- missing model/texture/resource regressions: 0;
+- new crash reports: 0.
+
+### User-local final acceptance
+
+User explicitly reported **M31 local acceptance fully PASS** on 2026-08-12, including the expedition retrofit/dockyard/module-slot/scan/Blockade behavior and retained-save compatibility.
+
+One first local headless attempt hung because a previous-version process remained running. After clearing the stale process, the unchanged M31 code passed. This is recorded as an environment/process-lifecycle observation, not an M31 gameplay/runtime defect.
 
 ## Compatibility contract
 
 - Minecraft Java Edition 1.21.1 / NeoForge 21.1.244 / Java 21;
-- `SkyWorldData` current version remains **11**;
-- no M30 schema migration;
-- accepted external-island IDs/centers/radii/depths/broad kinds remain stable;
-- already-generated chunks are not regenerated;
-- accepted M28 Mist Marsh and M29 Ashen/Soul Rift choices remain stable;
-- old Auto Worker ordinals 0–6 remain valid; `NETHER_WART` is append-only ordinal 7;
-- airship inventory/slot semantics, payload protocol and `supply_manifest` remain unchanged;
-- no M31 airship/dockyard migration exists in M30.
+- `SkyWorldData` remains **v11**;
+- payload protocol remains **1**;
+- Basic Airship real container remains **91 slots**;
+- accepted module slots A/B/C remain 28/29/36;
+- slot **46** changes from reserved/disabled to conditional expedition module D; no accepted slot moves;
+- dedicated logistics module remains slot **90**;
+- `supply_manifest` remains unchanged;
+- old M30 airship NBT without `expedition_retrofit` loads with retrofit disabled;
+- Basic Scan 600 and ordinary Long-range Scan 1600 remain unchanged; expedition + Long-range Scan uses 2200;
+- M30 Ember selection remains stable before M31 Blockade derivation;
+- already-generated blocks are never regenerated or overwritten.
 
-## M30 source identity
+## M31 source identity
 
-The exact accepted source artifact is recorded in `docs/M30_SOURCE_IDENTITY_20260812.md`.
+- M31 final accepted full-project SHA-256: `0804b5ba95b1e748294f2f2e3484817ba3342d72d4b2f363a8d9d669f728a026`;
+- M30 final -> M31 final incremental SHA-256: `e45de4ad357d8b638e73ea7cc529dde771e02359eb6b29254c5a8f6a75f0f221`;
+- accepted runtime JAR SHA-256: `4a02eb20f6d14727712278cb52d5d0cb6e071f031b7e9600f96ee215b9e53d91`.
 
-- M30 final accepted full-project SHA-256: `7d096adb4314bd1ea9471d90994c47ca8b11ab46160b23642631a27052108365`;
-- M30 accepted runtime JAR SHA-256: `18b8310bd41330a30521482b6ad7b4748994e6b1fd7963c4db6a5b5f2ccc19df`.
-
-## Retained non-blockers
+## Retained non-blocking observations
 
 - M19: an already-open second multiplayer supply menu does not live-refresh another player's ghost-target edit until reopened; server state remains authoritative and prior acceptance found no duplication/loss/stale-close overwrite.
-- M26: future Deep Crystal presentation may strengthen the linear rift silhouette and concentrate some amethyst into geode-like formations; this remains deferred and must only affect newly generated terrain if implemented.
-- M29: one first headless-client start hit an early NeoForge `DisplayWindow/FMLConfig` environment race before mod loading; an unchanged rerun passed and the issue was classified as environmental/non-blocking.
+- M26: future Deep Crystal presentation may strengthen the linear rift silhouette and concentrate some amethyst into geode-like formations; this remains deferred and may only affect newly generated content if implemented.
+- M29: one first headless-client start hit an early NeoForge `DisplayWindow/FMLConfig` environment race before mod loading; an unchanged rerun passed.
+- M31: one first local headless attempt hung because a previous-version process was still running; clearing that stale process allowed the unchanged code to pass.
+- M31 terrain/presentation seam: a challenge island whose terrain was already generated before M31 is never rewritten. If deterministic M31 classification treats a previously STANDARD challenge island as Blockade, the old physical terrain can remain while scan/challenge presentation uses Blockade semantics.
 
 ## Next phase
 
-**M31 — expedition airship retrofit, dockyard and blockade challenge.**
+**M32 — 6–15h integration closure.**
 
-M31 must branch from this M30 final accepted source. M32 6–15h integration closure remains gated behind M31 acceptance.
+M32 starts from this final accepted M31 source. It is primarily an integration/flow/balance/compatibility closure milestone for the M26–M31 post-release vertical slice. Do not begin M33+ dangerous outer ring, End fragments, shulkers, ancient debris/Wither, large expedition ships or other long-term content before M32 is accepted unless the scope is explicitly changed.
