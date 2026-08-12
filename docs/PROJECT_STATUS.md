@@ -2,103 +2,58 @@
 
 ## Authoritative accepted baseline
 
-**M26 — Deep Crystal Fault + diamond progression**
+**M30 — Crimson/Warped ecology + Nether Wart automation + Ember Ruin Blaze challenge**
 
-Status: **accepted and closed on 2026-08-11**.
+Status: **accepted and closed on 2026-08-12**.
 
-The authoritative runtime/development baseline is the M26 final accepted source,
-produced from the M25 final accepted archive plus the accepted M26 Deep Crystal
-Fault / diamond-progression implementation and final acceptance documentation.
+The authoritative runtime/development baseline is the M30 final accepted source produced from the accepted M29 source plus the accepted M30 implementation and documentation-only finalization.
 
-M24 remains the immutable first-release RC reference baseline. M25 remains the
-post-release compatibility/migration foundation. M26 is now the current baseline
-for all subsequent feature work.
+M24 remains the immutable first-release RC reference. M25 is the post-release compatibility foundation. M26 added Deep Crystal/diamond. M27 advanced `SkyWorldData` from v10 to v11. M28, M29 and M30 retain v11.
 
-## M26 acceptance evidence
+## Accepted validation chain
 
-### User-local final acceptance
+- M27: JUnit 93/93, GameTest 71/71, build/release verification, dedicated server, v10→v11 migration and real-client acceptance PASS.
+- M28: JUnit 100/100, GameTest 73/73, build/release verification, dedicated server, migration and real-client acceptance PASS.
+- M29: JUnit 108/108, GameTest 75/75, build/release verification, dedicated server, migration and real-client acceptance PASS.
+- M30: JUnit 114/114, GameTest 77/77 in 2.552 s, build/release verification, dedicated-server smoke and real Xvfb + llvmpipe client smoke/resource/crash checks PASS; user-local acceptance PASS on 2026-08-12.
 
-- User explicitly reported M26 as **accepted** on 2026-08-11.
-- The M26 candidate's retained-save/gameplay acceptance gate is therefore closed.
-- M26 is no longer a candidate/pending milestone.
+## M30 delivered scope
 
-### Linux automated validation retained from the accepted candidate
+- derived Crimson/Warped ecology fragments while preserving M28 Mist Marsh selections;
+- controlled Nether Wart source;
+- Auto Worker `NETHER_WART` mode appended at ordinal 7;
+- Ember Ruin challenge profile reusing the existing Wind Eye pedestal/state machine;
+- Blaze/Magma Cube encounter waves and Blaze-oriented rewards;
+- Blaze remains outside ordinary reusable sample/inducer automation;
+- scan presentation extended for Crimson/Warped/Ember content.
 
-- JUnit: **87/87**, 0 failures/errors/skips;
-- clean build: PASS;
-- `verifyReleaseJarContents`: PASS;
-- GameTest: **69/69 in 1.867 s**;
-- production JAR: 532,594 bytes / 453 entries / SHA-256
-  `8a2791b77b2ab89932cd55cfd2c699d47bb7bf41d119aab06c5618df1fdfec05`;
-- dedicated server: reached `Done (0.354s)!`, then stopped and saved normally;
-- real Xvfb + Mesa llvmpipe client: TitleScreen, screenshot and graceful exit PASS;
-- unexpected client errors: 0;
-- missing model/texture/resource regressions: 0;
-- new crash reports: 0.
+## Compatibility contract
 
-## M26 delivered scope
-
-- Deep Crystal Fault content profile for distant resource islands, weighted most
-  strongly in the 700–1599 block expedition band without a hard distance wall;
-- deepslate/tuff/calcite/amethyst geology and shallow fault presentation;
-- controlled natural diamond ore and budding-amethyst nodes;
-- one renewable-use `skyremnants:diamond_mineral_sample` in the island cache;
-- existing Mineral Cultivation Bed extended with catalytic Diamond Sample support;
-- diamond cultivation target: 48 cobblestone + 4 coal/charcoal, 14,400 ticks,
-  diamond x1 (theoretical 5 diamonds/hour at 20 TPS);
-- existing scan presentation can identify Deep Crystal Fault while scanner radius
-  remains unchanged at 600 blocks;
-- post-release resource/registry tests updated to allow append-only additions while
-  preserving the historical M24 compatibility floor.
-
-## Compatibility contract retained
-
-- Minecraft Java Edition 1.21.1;
-- NeoForge 21.1.244 baseline;
-- Java 21;
-- M24/M25 accepted registry IDs remain valid;
-- `SkyWorldData` remains version **10**; M26 adds no new persisted world-data field;
-- accepted external-island IDs/centers/radii/depths/broad kinds are not remapped;
-- already-generated chunks are never regenerated or overwritten;
-- airship payload id/protocol, real container slots 0–90, module slots 28/29/36,
-  logistics slot 90 and `supply_manifest` remain unchanged;
-- existing Mineral Cultivation Bed modes keep their ordinal/meaning; DIAMOND is
-  append-only.
+- Minecraft Java Edition 1.21.1 / NeoForge 21.1.244 / Java 21;
+- `SkyWorldData` current version remains **11**;
+- no M30 schema migration;
+- accepted external-island IDs/centers/radii/depths/broad kinds remain stable;
+- already-generated chunks are not regenerated;
+- accepted M28 Mist Marsh and M29 Ashen/Soul Rift choices remain stable;
+- old Auto Worker ordinals 0–6 remain valid; `NETHER_WART` is append-only ordinal 7;
+- airship inventory/slot semantics, payload protocol and `supply_manifest` remain unchanged;
+- no M31 airship/dockyard migration exists in M30.
 
 ## Source archive
 
-The exact M25 final -> M26 final accepted incremental archive is stored in
-`.source-archives/m26-final/` as binary-safe Base64 parts with a reconstruction
-script and SHA-256 manifest.
+The exact M30 final accepted full-project ZIP is stored under `.source-archives/m30-final/` as binary-safe Base64 parts with a manifest and reconstruction script.
 
-- M25 final accepted full-project SHA-256: `4b351b9d7a4e582e71763257a0d24b2a8eda9ccaa233cdf948df50c1efeebb7a`;
-- M26 final incremental SHA-256: `015117698d1ed5036dab4330b0ce1c8d7c30a584076420bbb379db62882ce685`;
-- M26 final accepted full-project SHA-256: `5e162406a23b5d84f2f1890ae8bc93cba0a710d621375a8ff3a899a874f948ec`.
+- M30 final accepted full-project SHA-256: `7d096adb4314bd1ea9471d90994c47ca8b11ab46160b23642631a27052108365`;
+- M30 accepted runtime JAR SHA-256: `18b8310bd41330a30521482b6ad7b4748994e6b1fd7963c4db6a5b5f2ccc19df`.
 
-## Accepted non-blocking observations
+## Retained non-blockers
 
-### M19 multiplayer supply-menu snapshot
-
-An already-open second supply menu does not live-refresh another client's
-`ghost-target` edit until reopened. Server state remains authoritative and prior
-acceptance established no duplication/loss/stale-close overwrite.
-
-### M26 Deep Crystal presentation polish
-
-User acceptance included a **non-blocking future suggestion**:
-
-- strengthen the island's linear fault/rift silhouette;
-- allow part of the amethyst to form more concentrated geode-like structures.
-
-This is recorded as future worldgen/presentation polish, not an M26 blocker and
-not an automatic M27 scope expansion. Any later implementation must affect only
-newly generated chunks/islands and must not regenerate accepted M26/M25 terrain.
+- M19: an already-open second multiplayer supply menu does not live-refresh another player's ghost-target edit until reopened; server state remains authoritative and prior acceptance found no duplication/loss/stale-close overwrite.
+- M26: future Deep Crystal presentation may strengthen the linear rift silhouette and concentrate some amethyst into geode-like formations; this remains deferred and must only affect newly generated terrain if implemented.
+- M29: one first headless-client start hit an early NeoForge `DisplayWindow/FMLConfig` environment race before mod loading; an unchanged rerun passed and the issue was classified as environmental/non-blocking.
 
 ## Next phase
 
-**M27 — Remote outposts, amethyst harvesting and long-range scanning.**
+**M31 — expedition airship retrofit, dockyard and blockade challenge.**
 
-M27 must branch from this accepted M26 source. Its scope is limited to extending
-existing Worker/Docking Base/Pipe/Chunk Loader/scan systems for the remote
-amethyst-outpost loop and long-range scan functionality. Do not begin M28 Mist
-Marsh / slime / creeper expansion before M27 itself is accepted.
+M31 must branch from this M30 final accepted source. M32 6–15h integration closure remains gated behind M31 acceptance.
