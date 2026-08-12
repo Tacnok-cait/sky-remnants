@@ -1,48 +1,41 @@
 # Next Work
 
-Authoritative accepted development baseline: **M32 — 6–15h Integration Closure, accepted 2026-08-12**.
+Authoritative accepted development baseline: **M37 — Large Expedition Vessel Compatibility Foundation, accepted 2026-08-12**.
 
-Detailed roadmap: `docs/POST_M32_DEVELOPMENT_ROADMAP.md`.
+## Immediate milestone: M38
 
-## Immediate milestone: M33
+**M38 — Large Expedition Vessel playable vertical slice**
 
-**M33 — Dangerous Outer Ring / Deep Survey Bridge**
+Start only from the final accepted M37 source.
 
-Start only from the final accepted M32 source.
+### Frozen M37 compatibility foundation
 
-### Frozen M33 scope
+- Basic Airship remains the accepted 91-slot vehicle contract;
+- Basic Airship module slots 28/29/36/46 and logistics slot 90 are frozen;
+- Basic Airship NBT/menu/payload/`supply_manifest` semantics are not reinterpreted;
+- Docking Base now has a narrow `DockableLogisticsVessel` facade while retaining legacy Basic-Airship accessors and persisted UUID key;
+- future Large Expedition Vessel uses independent `large_vessel_data_version=1`;
+- Large Expedition Vessel real container contract is 128 slots: base cargo 0–53, fuel 54, modules 55–60, logistics 61, furnace service 62–64, reserved 65–73, expansion cargo 74–127;
+- maximum large-vessel cargo after expansion is 108 slots;
+- M37 deliberately registers no large-vessel entity yet.
 
-1. add one Deep-range Scan Module targeting **3200 blocks**;
-2. Deep-range operation requires Expedition retrofit;
-3. preserve the existing 91-slot airship and slots 28/29/36/46/90;
-4. keep Basic/Long-range/Deep-range scanner modules mutually exclusive;
-5. generalize compact scan rows so Deep-range prioritizes unvisited targets beyond 2200 while retaining one nearby landmark;
-6. add one OUTER-only `STORM_RELAY` challenge profile after the accepted Ember → Blockade decisions;
-7. prefer roughly 2200–2999 distance and do not consume DEEP islands in M33;
-8. reuse the existing Wind Eye pedestal/state machine;
-9. first Storm Relay clear may grant the Deep-range Scan Module while ordinary crafting from already accepted M26–M31 materials remains an alternative;
-10. add no End/Enderman/Shulker/Ancient Debris/Wither content in M33;
-11. target no `SkyWorldData` bump, no payload migration and no airship-slot migration.
+## M38 scope
 
-### M33 compatibility gate
+1. register the first playable Large Expedition Vessel entity and placement item using new append-only registry IDs;
+2. implement the independent 128-slot inventory exactly as frozen by M37, with explicit entity-NBT/data-version persistence;
+3. implement a dedicated menu/screen rather than reusing Basic Airship real slot indices;
+4. reuse proven airship flight/input concepts where safe, but do not silently overload old payload semantics if the new vessel requires different state;
+5. provide a simple dedicated renderer/model appropriate for the larger vessel without a moving-block construction system;
+6. make the new vessel compatible with the generic Docking Base/logistics facade and existing fuel/logistics concepts;
+7. provide larger cargo/endurance/module choice as the vertical-slice value; no autopilot, no power network, no maintenance wear and no required crew-role system;
+8. preserve all M33–M37 world/resource/challenge content and old saves;
+9. validate entity save/reload, inventory persistence, docking/release, dedicated-server authority, multiplayer inventory handling, real-client rendering and performance;
+10. do not begin M39+ endgame integration before M38 local acceptance.
 
-Before implementation, freeze/re-test:
+## Migration gate
 
-- `SkyWorldData` v11;
-- payload protocol 1;
-- external island id/position/radius/depth/broad kind determinism;
-- M26 Deep Crystal, M28 Mist Marsh, M29 Otherworld, M30 Ember and M31 Blockade selection ordering;
-- scan presentation append-only ordinals/hints;
-- airship inventory/module/logistics persistence;
-- challenge first-clear/cooldown persistence;
-- retained M32 OUTER/DEEP terrain behavior;
-- dedicated-server and multiplayer module authority.
+Before gameplay expansion, define and test the new entity registry ID, `large_vessel_data_version`, inventory serialization and menu/network identity. No accepted Basic Airship field or slot may be repurposed for the new vessel.
 
-## Locked later milestones
+## Required delivery
 
-- M34 — End Fractures / first deep-band End resources;
-- M35 — Drifting End City / Shulkers / Ender Pearl automation closure;
-- M36 — Ash Crown Forge / Ancient Debris + Wither;
-- M37+ — large expedition vessel and endgame integration.
-
-Do not implement M34+ before M33 local acceptance.
+M38 must include the M37 final → M38 incremental package, complete M38 project, update notes, PowerShell commands, explicit acceptance checklist, known limitations/migration impact, and only validation results actually executed.
