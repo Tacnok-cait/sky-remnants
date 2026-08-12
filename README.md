@@ -4,13 +4,11 @@ Sky Remnants is a Minecraft Java Edition 1.21.1 + NeoForge sky-island survival m
 
 ## Accepted development baseline
 
-**M31 — Expedition Airship Retrofit, Dockyard and Blockade Challenge — accepted and closed on 2026-08-12.**
+**M32 — 6–15h Integration Closure — accepted and closed on 2026-08-12.**
 
-M31 is the current authoritative post-release development baseline. M32 — 6–15h integration closure — is the next milestone and must start from this final accepted M31 source.
+M32 is the current authoritative post-release development baseline. It closes the M26→M31 6–15 hour progression slice, keeps `SkyWorldData` v11 / payload protocol 1 / the 91-slot airship contract unchanged, and fixes scanner feedback so Basic 600, Long-range 1600 and Expedition Long-range 2200 ranges are presented correctly.
 
-M31 keeps `SkyWorldData` v11, payload protocol 1 and the 91-slot airship container. It adds the Expedition Retrofit Kit, Docking Base retrofit interaction, expedition-only module slot 46, 2200-block expedition long-range scanning and the voluntary Blockade Outpost challenge while preserving accepted M30 Ember selections and all older slot meanings.
-
-Read `docs/PROJECT_STATUS.md`, `docs/NEXT_WORK.md`, `docs/M31_ACCEPTANCE_RESULT_20260812.md`, `docs/M31_FINALIZATION_20260812.md` and `docs/M31_SOURCE_IDENTITY_20260812.md` before continuing development.
+Read `docs/PROJECT_STATUS.md`, `docs/NEXT_WORK.md`, `docs/M32_ACCEPTANCE_RESULT_20260812.md`, `docs/M32_FINALIZATION_20260812.md` and `docs/M32_SOURCE_IDENTITY_20260812.md` before continuing development.
 
 ## Requirements
 
@@ -20,29 +18,30 @@ Read `docs/PROJECT_STATUS.md`, `docs/NEXT_WORK.md`, `docs/M31_ACCEPTANCE_RESULT_
 
 Optional integrations: Jade and JEI. Neither is a hard dependency.
 
-## M31 accepted validation
+## M32 accepted validation
 
-Accepted candidate automated validation:
-
-- JUnit 121/121, 37 suites;
-- clean build + `verifyReleaseJarContents` PASS;
-- GameTest 79/79 in 2.677 s;
+- automated JUnit 129/129, 39 suites;
+- automated GameTest 81/81 in 2.338 s;
+- clean build + release-JAR verification PASS;
 - dedicated-server smoke PASS;
-- real Linux Xvfb + Mesa llvmpipe client smoke/resource/model/crash checks PASS.
+- real Linux Xvfb + Mesa llvmpipe client smoke PASS;
+- user-local Windows JUnit 129/129 and GameTest 81/81 in 3.910 s;
+- user-local M26 retained-world migration smoke PASS;
+- user-local WSL2 main-menu + in-world real-client acceptance PASS;
+- explicit user final acceptance on 2026-08-12.
 
-User-local M31 acceptance was explicitly reported PASS on 2026-08-12. The first local headless attempt hung because a previous-version process was still running; after clearing the stale process, the unchanged M31 code passed. This is retained as a non-blocking environment observation, not an M31 defect.
+M32 finalization is documentation/status-only. The reference accepted candidate JAR remains byte-identical; independent Windows and Linux builds may have different archive SHA values, so the final accepted source ZIP is authoritative.
 
-M31 finalization is documentation/status-only. Runtime code and the accepted candidate JAR are unchanged.
+## M32 source identity
 
-## M31 source identity
+- M32 final accepted full-project SHA-256: `edc4e8a574f5845cd073fb96d2d19b5aa3ce04d2d6e989dc1e329370772ce59b`
+- M31 final → M32 final incremental SHA-256: `4a6c9dd61990da5d268f131aa82afb96f9763b35c93680dad48f3f794b41be04`
+- reference accepted JAR SHA-256: `120b9ab4d1138f997883e1c7cbdb326aab46cb88a8f03a4a254b2c586bd8ef3f`
+- user-local Windows accepted build JAR SHA-256: `a5f88bbfaf498820764e50f0088deb9d2b9f42a4ed5a22c9d8945c6183253760`
 
-- M31 final accepted full-project SHA-256: `0804b5ba95b1e748294f2f2e3484817ba3342d72d4b2f363a8d9d669f728a026`
-- M30 final -> M31 final incremental SHA-256: `e45de4ad357d8b638e73ea7cc529dde771e02359eb6b29254c5a8f6a75f0f221`
-- Accepted M31 runtime JAR SHA-256: `4a02eb20f6d14727712278cb52d5d0cb6e071f031b7e9600f96ee215b9e53d91`
+## Next phase
 
-## Next milestone
-
-**M32 — 6–15h integration closure.** M33+ remains locked until M32 acceptance.
+**M33 planning — Dangerous Outer Ring.** M33 implementation waits for the post-M32 scope plan to be frozen. End fragments, Shulker content, ancient debris/Wither and large expedition ships remain separate later milestones.
 
 ## License
 
