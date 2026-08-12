@@ -4,44 +4,42 @@ Sky Remnants is a Minecraft Java Edition 1.21.1 + NeoForge sky-island survival m
 
 ## Accepted development baseline
 
-**M32 — 6–15h Integration Closure — accepted and closed on 2026-08-12.**
+**M37 — Large Expedition Vessel Compatibility Foundation — accepted and closed on 2026-08-12.**
 
-M32 is the current authoritative post-release development baseline. It closes the M26→M31 6–15 hour progression slice, keeps `SkyWorldData` v11 / payload protocol 1 / the 91-slot airship contract unchanged, and fixes scanner feedback so Basic 600, Long-range 1600 and Expedition Long-range 2200 ranges are presented correctly.
+M33–M37 have all passed user-local acceptance. The exact accepted source artifacts are the local final full-project ZIPs recorded in `docs/M33_M37_ACCEPTANCE_CHAIN_20260812.md`; finalization for each milestone is documentation/status-only relative to its tested candidate/provisional checkpoint.
 
-Read `docs/PROJECT_STATUS.md`, `docs/NEXT_WORK.md`, `docs/M32_ACCEPTANCE_RESULT_20260812.md`, `docs/M32_FINALIZATION_20260812.md` and `docs/M32_SOURCE_IDENTITY_20260812.md` before continuing development.
+M37 preserves the accepted Basic Airship 91-slot contract and introduces a narrow generic docking/logistics facade plus an independent version-1 Large Expedition Vessel data contract. M37 deliberately does **not** register a half-playable large-vessel entity.
 
 ## Requirements
 
 - Minecraft Java Edition 1.21.1
-- NeoForge 21.1.244 project baseline
+- NeoForge 21.1.244
 - Java 21
 
 Optional integrations: Jade and JEI. Neither is a hard dependency.
 
-## M32 accepted validation
+## M37 accepted validation
 
-- automated JUnit 129/129, 39 suites;
-- automated GameTest 81/81 in 2.338 s;
+- JUnit **162/162**, 48 suites;
+- GameTest **92/92 in 2.177 s**;
 - clean build + release-JAR verification PASS;
 - dedicated-server smoke PASS;
-- real Linux Xvfb + Mesa llvmpipe client smoke PASS;
-- user-local Windows JUnit 129/129 and GameTest 81/81 in 3.910 s;
-- user-local M26 retained-world migration smoke PASS;
-- user-local WSL2 main-menu + in-world real-client acceptance PASS;
-- explicit user final acceptance on 2026-08-12.
+- real Xvfb + Mesa llvmpipe client PASS;
+- user-local M33–M37 acceptance PASS.
 
-M32 finalization is documentation/status-only. The reference accepted candidate JAR remains byte-identical; independent Windows and Linux builds may have different archive SHA values, so the final accepted source ZIP is authoritative.
+## M37 source identity
 
-## M32 source identity
+- final accepted full-project SHA-256: `91520ce27a3d9e04815511ec4f8e2a7bfea980d9bce5314722e2bedf120eae2e`;
+- M36 final → M37 final incremental SHA-256: `a69717bee3a2803cca70f6b410f59574a370f390b49752ab5aba5666187db986`;
+- accepted M37 JAR SHA-256: `443ea918da4381b01b4a622985e8c90cf69f806a615a4d257856d098e5dca6b5`.
 
-- M32 final accepted full-project SHA-256: `edc4e8a574f5845cd073fb96d2d19b5aa3ce04d2d6e989dc1e329370772ce59b`
-- M31 final → M32 final incremental SHA-256: `4a6c9dd61990da5d268f131aa82afb96f9763b35c93680dad48f3f794b41be04`
-- reference accepted JAR SHA-256: `120b9ab4d1138f997883e1c7cbdb326aab46cb88a8f03a4a254b2c586bd8ef3f`
-- user-local Windows accepted build JAR SHA-256: `a5f88bbfaf498820764e50f0088deb9d2b9f42a4ed5a22c9d8945c6183253760`
+The exact accepted binary source ZIP remains the authoritative local artifact. The current GitHub connector records its identity and acceptance chain but does not directly ingest local `/mnt/data` ZIP bytes.
 
-## Next phase
+## Next milestone
 
-**M33 planning — Dangerous Outer Ring.** M33 implementation waits for the post-M32 scope plan to be frozen. End fragments, Shulker content, ancient debris/Wither and large expedition ships remain separate later milestones.
+**M38 — Large Expedition Vessel playable vertical slice.**
+
+M38 must implement the first actual large-vessel entity/item/menu/renderer against the independent 128-slot M37 contract without reinterpreting the Basic Airship 91-slot layout.
 
 ## License
 
