@@ -4,11 +4,13 @@ Sky Remnants is a Minecraft Java Edition 1.21.1 + NeoForge sky-island survival m
 
 ## Accepted development baseline
 
-**M30 — Crimson/Warped ecology + Nether Wart automation + Ember Ruin Blaze challenge — accepted and closed on 2026-08-12.**
+**M31 — Expedition Airship Retrofit, Dockyard and Blockade Challenge — accepted and closed on 2026-08-12.**
 
-M30 retains `SkyWorldData` v11, keeps accepted island identity stable, appends Auto Worker `NETHER_WART` at ordinal 7, and reuses the existing Wind Eye pedestal/state machine for the Ember Ruin Blaze challenge. M31 airship retrofit/dockyard content is intentionally not part of M30.
+M31 is the current authoritative post-release development baseline. M32 — 6–15h integration closure — is the next milestone and must start from this final accepted M31 source.
 
-Read `docs/PROJECT_STATUS.md`, `docs/NEXT_WORK.md`, `docs/M30_ACCEPTANCE_RESULT_20260812.md`, `docs/M30_FINALIZATION_20260812.md` and `docs/M30_SOURCE_IDENTITY_20260812.md` before continuing development.
+M31 keeps `SkyWorldData` v11, payload protocol 1 and the 91-slot airship container. It adds the Expedition Retrofit Kit, Docking Base retrofit interaction, expedition-only module slot 46, 2200-block expedition long-range scanning and the voluntary Blockade Outpost challenge while preserving accepted M30 Ember selections and all older slot meanings.
+
+Read `docs/PROJECT_STATUS.md`, `docs/NEXT_WORK.md`, `docs/M31_ACCEPTANCE_RESULT_20260812.md`, `docs/M31_FINALIZATION_20260812.md` and `docs/M31_SOURCE_IDENTITY_20260812.md` before continuing development.
 
 ## Requirements
 
@@ -18,27 +20,29 @@ Read `docs/PROJECT_STATUS.md`, `docs/NEXT_WORK.md`, `docs/M30_ACCEPTANCE_RESULT_
 
 Optional integrations: Jade and JEI. Neither is a hard dependency.
 
-## Accepted M30 validation
+## M31 accepted validation
 
-- JUnit 114/114, 35 suites;
-- build + `verifyReleaseJarContents` PASS;
-- GameTest 77/77 in 2.552 s;
+Accepted candidate automated validation:
+
+- JUnit 121/121, 37 suites;
+- clean build + `verifyReleaseJarContents` PASS;
+- GameTest 79/79 in 2.677 s;
 - dedicated-server smoke PASS;
-- real Linux Xvfb + Mesa llvmpipe client smoke/resource/model/crash checks PASS;
-- user-local final acceptance PASS on 2026-08-12.
+- real Linux Xvfb + Mesa llvmpipe client smoke/resource/model/crash checks PASS.
 
-The finalization step is documentation-only; the accepted runtime JAR is unchanged from the tested M30 candidate.
+User-local M31 acceptance was explicitly reported PASS on 2026-08-12. The first local headless attempt hung because a previous-version process was still running; after clearing the stale process, the unchanged M31 code passed. This is retained as a non-blocking environment observation, not an M31 defect.
 
-## M30 source identity
+M31 finalization is documentation/status-only. Runtime code and the accepted candidate JAR are unchanged.
 
-The exact accepted full-project artifact is identified in `docs/M30_SOURCE_IDENTITY_20260812.md`.
+## M31 source identity
 
-- M30 final accepted full-project SHA-256: `7d096adb4314bd1ea9471d90994c47ca8b11ab46160b23642631a27052108365`
-- Accepted M30 runtime JAR SHA-256: `18b8310bd41330a30521482b6ad7b4748994e6b1fd7963c4db6a5b5f2ccc19df`
+- M31 final accepted full-project SHA-256: `0804b5ba95b1e748294f2f2e3484817ba3342d72d4b2f363a8d9d669f728a026`
+- M30 final -> M31 final incremental SHA-256: `e45de4ad357d8b638e73ea7cc529dde771e02359eb6b29254c5a8f6a75f0f221`
+- Accepted M31 runtime JAR SHA-256: `4a02eb20f6d14727712278cb52d5d0cb6e071f031b7e9600f96ee215b9e53d91`
 
 ## Next milestone
 
-**M31 — expedition airship retrofit, dockyard and blockade challenge.**
+**M32 — 6–15h integration closure.** M33+ remains locked until M32 acceptance.
 
 ## License
 
