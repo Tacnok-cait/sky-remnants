@@ -8,7 +8,7 @@ Sky Remnants is a Minecraft Java Edition 1.21.1 + NeoForge sky-island survival m
 
 M30 retains `SkyWorldData` v11, keeps accepted island identity stable, appends Auto Worker `NETHER_WART` at ordinal 7, and reuses the existing Wind Eye pedestal/state machine for the Ember Ruin Blaze challenge. M31 airship retrofit/dockyard content is intentionally not part of M30.
 
-Read `docs/PROJECT_STATUS.md`, `docs/NEXT_WORK.md`, `docs/M30_ACCEPTANCE_RESULT_20260812.md` and `docs/M30_FINALIZATION_20260812.md` before continuing development.
+Read `docs/PROJECT_STATUS.md`, `docs/NEXT_WORK.md`, `docs/M30_ACCEPTANCE_RESULT_20260812.md`, `docs/M30_FINALIZATION_20260812.md` and `docs/M30_SOURCE_IDENTITY_20260812.md` before continuing development.
 
 ## Requirements
 
@@ -29,9 +29,9 @@ Optional integrations: Jade and JEI. Neither is a hard dependency.
 
 The finalization step is documentation-only; the accepted runtime JAR is unchanged from the tested M30 candidate.
 
-## Binary-safe M30 source archive
+## M30 source identity
 
-The exact M30 final accepted full-project ZIP is stored under `.source-archives/m30-final/` as Base64 parts with a manifest and PowerShell reconstruction helper.
+The exact accepted full-project artifact is identified in `docs/M30_SOURCE_IDENTITY_20260812.md`.
 
 - M30 final accepted full-project SHA-256: `7d096adb4314bd1ea9471d90994c47ca8b11ab46160b23642631a27052108365`
 - Accepted M30 runtime JAR SHA-256: `18b8310bd41330a30521482b6ad7b4748994e6b1fd7963c4db6a5b5f2ccc19df`
