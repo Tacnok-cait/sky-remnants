@@ -20,65 +20,62 @@ M24 remains the immutable first-release RC reference. M25 established the post-r
 
 ## Accepted validation evidence
 
-### Automated candidate validation retained
-
-- JUnit: **129/129**, 39 suites, 0 failures/errors/skips;
-- `clean build`: PASS;
-- `verifyReleaseJarContents`: PASS;
-- GameTest: **81/81 in 2.338 s**;
-- dedicated server: reached `Done (0.447s)!`, then stopped/saved normally;
-- real Linux Xvfb + Mesa llvmpipe client smoke/resource/model/crash checks: PASS;
-- unexpected client errors: 0;
-- missing model/texture regressions: 0;
-- new crash reports: 0.
-
-### User-local final acceptance
-
-- Windows JUnit: **129/129**, 39 suites;
-- Windows `clean build`: PASS;
-- Windows GameTest: **81/81 in 3.910 s**;
-- Windows release-JAR verification: PASS;
-- dedicated-server smoke: PASS;
-- migration smoke from `M26 Deep Crystal Acceptance`: PASS;
-- WSL2 real-client main-menu + in-world acceptance: PASS;
+- automated JUnit: **129/129**, 39 suites;
+- automated GameTest: **81/81 in 2.338 s**;
+- automated clean build/release verification, dedicated-server smoke and real Linux client smoke: PASS;
+- user-local Windows JUnit: **129/129**;
+- user-local Windows GameTest: **81/81 in 3.910 s**;
+- user-local clean build/release verification, dedicated-server smoke and M26 retained-world migration smoke: PASS;
+- user-local WSL2 main-menu + in-world real-client acceptance: PASS;
 - visual review: no missing texture/rendering anomaly;
-- user explicitly confirmed **M32通过** on 2026-08-12.
+- explicit user confirmation: **M32通过** on 2026-08-12.
 
 One first WSL2 headless attempt stalled due to stale previous-version process interference. Cleanup + unchanged rerun passed; retained as a non-blocking environment observation.
 
 ## Compatibility contract
 
 - Minecraft Java Edition 1.21.1 / NeoForge 21.1.244 / Java 21;
-- `SkyWorldData`: **v11**;
-- payload protocol: **1**;
-- Basic Airship real container: **91**;
-- module slots A/B/C/D: **28 / 29 / 36 / 46**;
-- dedicated logistics slot: **90**;
+- `SkyWorldData`: v11;
+- payload protocol: 1;
+- Basic Airship real container: 91;
+- module slots A/B/C/D: 28/29/36/46;
+- logistics slot: 90;
 - `supply_manifest`: unchanged;
-- existing Auto Worker / Mineral Cultivation / Hostile Mob Inducer ordinals remain frozen;
-- accepted M26 Deep Crystal, M28 Mist Marsh, M29 Otherworld, M30 Crimson/Warped/Ember and M31 Blockade derivation order remains stable;
-- already-generated terrain/player builds are never regenerated or overwritten.
+- accepted machine/inducer/mineral ordinals frozen;
+- accepted M26→M31 deterministic profile ordering frozen;
+- generated terrain/player builds never regenerated or overwritten.
 
-## Accepted source/JAR identity
+## Accepted source identity
 
 - M32 final accepted full-project SHA-256: `edc4e8a574f5845cd073fb96d2d19b5aa3ce04d2d6e989dc1e329370772ce59b`;
 - M31 final → M32 final incremental SHA-256: `4a6c9dd61990da5d268f131aa82afb96f9763b35c93680dad48f3f794b41be04`;
-- M32 candidate → final status patch SHA-256: `7f6501a3d7ec0aa87b22f0423f1090de432c1f276416e67c2c0f0ae0dc6b3769`;
-- retained reference accepted JAR SHA-256: `120b9ab4d1138f997883e1c7cbdb326aab46cb88a8f03a4a254b2c586bd8ef3f`;
+- reference accepted JAR SHA-256: `120b9ab4d1138f997883e1c7cbdb326aab46cb88a8f03a4a254b2c586bd8ef3f`;
 - user-local Windows accepted build JAR SHA-256: `a5f88bbfaf498820764e50f0088deb9d2b9f42a4ed5a22c9d8945c6183253760`.
 
 The accepted source archive, not cross-platform JAR byte identity, is authoritative.
 
-## Retained non-blocking observations
+## Retained non-blockers
 
-- M19 open second supply-menu live-refresh observation remains; server state authoritative, no accepted duplication/loss.
-- M26 Deep Crystal visual-polish suggestion remains deferred and new-chunks-only if ever implemented.
-- M29 early headless `DisplayWindow/FMLConfig` race passed unchanged on rerun.
+- M19 second-open-supply-menu live refresh observation remains; server state authoritative, no accepted duplication/loss.
+- M26 Deep Crystal visual polish remains deferred/new-chunks-only.
+- M29 early headless environment race passed unchanged on rerun.
 - M31/M32 stale-process headless interference passed unchanged after process cleanup.
-- M31 already-generated STANDARD challenge terrain is never rewritten if later presented as Blockade.
+- already-generated M31 STANDARD challenge terrain is not rewritten if later presented as Blockade.
 
-## Next phase
+## Post-M32 roadmap
 
-**M33 planning — Dangerous Outer Ring.**
+Detailed plan: `docs/POST_M32_DEVELOPMENT_ROADMAP.md`.
 
-M33 implementation must branch from M32 final accepted only after its exact scope and migration boundary are frozen. M34+ End fragments, Shulker content, ancient debris/Wither and large expedition ships remain locked behind their own later milestones.
+The post-M32 sequence is now refined as:
+
+- M33 — Dangerous Outer Ring / Deep Survey Bridge;
+- M34 — End Fragments / first DEEP End resources;
+- M35 — Drifting End City / Shulker progression / Ender Pearl automation closure;
+- M36 — Ash Crown Forge / Ancient Debris + Wither;
+- M37+ — large expedition vessel and endgame integration.
+
+## Immediate next milestone
+
+**M33 — Dangerous Outer Ring / Deep Survey Bridge.**
+
+M33 scope is frozen to one 3200-block Deep-range scanner tier plus one OUTER-only Storm Relay challenge family and compatibility coverage. M34+ remains locked until M33 local acceptance.

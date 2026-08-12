@@ -2,33 +2,47 @@
 
 Authoritative accepted development baseline: **M32 — 6–15h Integration Closure, accepted 2026-08-12**.
 
-## Immediate work: M33 planning
+Detailed roadmap: `docs/POST_M32_DEVELOPMENT_ROADMAP.md`.
 
-**M33 — Dangerous Outer Ring** is now unlocked for planning only.
+## Immediate milestone: M33
 
-Before implementation, freeze a narrow M33 scope against the accepted M32 compatibility contract. M33 should establish the 15h+ dangerous outer-ring exploration layer without silently pulling in the later End-city/Shulker, ancient-debris/Wither or large-expedition-ship milestones.
+**M33 — Dangerous Outer Ring / Deep Survey Bridge**
 
-## Compatibility gate before M33 implementation
+Start only from the final accepted M32 source.
 
-Re-check and explicitly freeze:
+### Frozen M33 scope
 
-- `SkyWorldData` v11 migration boundary;
-- external-island id/position/radius/depth/broad-kind determinism;
-- accepted profile-selection ordering from M26 through M31;
-- scan presentation ordinals/hints and 600/1600/2200 roles;
-- airship entity/container/module/logistics persistence;
-- challenge state/reward persistence;
-- ordinary-mob sample/inducer boundaries;
-- chunk-loader quotas and remote-outpost performance behavior;
-- retained-world behavior for already-generated OUTER/DEEP islands.
+1. add one Deep-range Scan Module targeting **3200 blocks**;
+2. Deep-range operation requires Expedition retrofit;
+3. preserve the existing 91-slot airship and slots 28/29/36/46/90;
+4. keep Basic/Long-range/Deep-range scanner modules mutually exclusive;
+5. generalize compact scan rows so Deep-range prioritizes unvisited targets beyond 2200 while retaining one nearby landmark;
+6. add one OUTER-only `STORM_RELAY` challenge profile after the accepted Ember → Blockade decisions;
+7. prefer roughly 2200–2999 distance and do not consume DEEP islands in M33;
+8. reuse the existing Wind Eye pedestal/state machine;
+9. first Storm Relay clear may grant the Deep-range Scan Module while ordinary crafting from already accepted M26–M31 materials remains an alternative;
+10. add no End/Enderman/Shulker/Ancient Debris/Wither content in M33;
+11. target no `SkyWorldData` bump, no payload migration and no airship-slot migration.
 
-## Locked later content
+### M33 compatibility gate
 
-Until the M33 plan is finalized, do not implement:
+Before implementation, freeze/re-test:
 
-- M34 End fragments / renewable Ender Pearl route;
-- M35 drifting End City / Shulker Shell content;
-- M36 ancient debris / Wither / Wither Skeleton Skull content;
-- M37+ large expedition ships or endgame systems.
+- `SkyWorldData` v11;
+- payload protocol 1;
+- external island id/position/radius/depth/broad kind determinism;
+- M26 Deep Crystal, M28 Mist Marsh, M29 Otherworld, M30 Ember and M31 Blockade selection ordering;
+- scan presentation append-only ordinals/hints;
+- airship inventory/module/logistics persistence;
+- challenge first-clear/cooldown persistence;
+- retained M32 OUTER/DEEP terrain behavior;
+- dedicated-server and multiplayer module authority.
 
-A detailed post-M32 roadmap will be frozen separately after M32 acceptance synchronization.
+## Locked later milestones
+
+- M34 — End Fractures / first deep-band End resources;
+- M35 — Drifting End City / Shulkers / Ender Pearl automation closure;
+- M36 — Ash Crown Forge / Ancient Debris + Wither;
+- M37+ — large expedition vessel and endgame integration.
+
+Do not implement M34+ before M33 local acceptance.
