@@ -2,80 +2,62 @@
 
 ## Authoritative accepted baseline
 
-**M32 — 6–15h Integration Closure**
+**M37 — Large Expedition Vessel Compatibility Foundation**
 
 Status: **accepted and closed on 2026-08-12**.
 
-The authoritative runtime/development baseline is the M32 final accepted source, produced directly from M31 final accepted plus the user-accepted M32 integration closure and documentation-only finalization.
+M33–M37 have all passed user-local acceptance. The accepted milestone chain is recorded in `docs/M33_M37_ACCEPTANCE_CHAIN_20260812.md`. Each finalization step is documentation/status-only relative to the tested candidate/provisional source for that milestone.
 
-M24 remains the immutable first-release RC reference. M25 established the post-release compatibility foundation. M26–M31 built the first post-release 6–15h content slice. M32 closes that slice as one validated progression/compatibility baseline.
+## M33–M37 accepted scope
 
-## M32 delivered scope
+- M33: 3200-block Deep-range Scan Module and OUTER Storm Relay challenge while preserving Ember/Blockade ordering;
+- M34: DEEP RESOURCE End Fracture with guaranteed first Ender Pearls, Chorus/End materials and low-frequency real Endermen;
+- M35: DEEP RUIN Drifting End City, real persistent Shulkers, Enderman Sample and append-only Hostile Mob Inducer `ENDERMAN=7` with inducer-only teleport containment;
+- M36: DEEP RESOURCE Ash Crown Forge, exactly two Ancient Debris per forge, real Wither Skeleton encounters and local tagged-Wither arena protection without global gamerule changes;
+- M37: generic `DockableLogisticsVessel` facade and independent version-1 Large Expedition Vessel 128-slot contract, without registering a half-playable large vessel.
 
-- closed the M26→M31 progression as a coherent 6–15h loop without adding M33+ frontier content;
-- fixed scanner feedback that incorrectly hard-coded 600 blocks for 1600/2200 scan tiers;
-- added integration contracts for schema/protocol/airship slots, scan roles, resource progression, automation boundaries and accepted island broad kinds;
-- added retained-save GameTest coverage joining v10→v11 world migration with pre-M31 airship NBT and persisted expedition retrofit state;
-- confirmed no new circular progression gate requiring a new schema, machine class or resource tier.
+## Accepted M37 validation
 
-## Accepted validation evidence
+- JUnit: **162/162**, 48 suites, 0 failures/errors/skips;
+- GameTest: **92/92 in 2.177 s**, Gradle exit 0;
+- clean build and `verifyReleaseJarContents`: PASS;
+- dedicated server: PASS;
+- real Xvfb + Mesa llvmpipe client: PASS;
+- user-local M33–M37 acceptance: **PASS**.
 
-- automated JUnit: **129/129**, 39 suites;
-- automated GameTest: **81/81 in 2.338 s**;
-- automated clean build/release verification, dedicated-server smoke and real Linux client smoke: PASS;
-- user-local Windows JUnit: **129/129**;
-- user-local Windows GameTest: **81/81 in 3.910 s**;
-- user-local clean build/release verification, dedicated-server smoke and M26 retained-world migration smoke: PASS;
-- user-local WSL2 main-menu + in-world real-client acceptance: PASS;
-- visual review: no missing texture/rendering anomaly;
-- explicit user confirmation: **M32通过** on 2026-08-12.
-
-One first WSL2 headless attempt stalled due to stale previous-version process interference. Cleanup + unchanged rerun passed; retained as a non-blocking environment observation.
-
-## Compatibility contract
+## Compatibility contract at M37
 
 - Minecraft Java Edition 1.21.1 / NeoForge 21.1.244 / Java 21;
-- `SkyWorldData`: v11;
-- payload protocol: 1;
-- Basic Airship real container: 91;
-- module slots A/B/C/D: 28/29/36/46;
-- logistics slot: 90;
-- `supply_manifest`: unchanged;
-- accepted machine/inducer/mineral ordinals frozen;
-- accepted M26→M31 deterministic profile ordering frozen;
-- generated terrain/player builds never regenerated or overwritten.
+- `SkyWorldData` remains **v11**;
+- payload protocol remains **1**;
+- Basic Airship `CONTAINER_SIZE` remains **91**;
+- Basic Airship module slots remain **28 / 29 / 36 / 46**;
+- Basic Airship logistics remains **90**;
+- `supply_manifest` remains unchanged;
+- Docking Base keeps legacy `bindAirship(...)`, `getDockedAirship()` and persisted `docked_airship` UUID compatibility;
+- Large Expedition Vessel contract is independent version 1 with **128 real slots** and must not reinterpret Basic Airship indices;
+- M37 still registers only `basic_airship` as a Sky Remnants vehicle entity;
+- generated terrain/player builds are never retroactively rewritten.
 
-## Accepted source identity
+## M37 source identity
 
-- M32 final accepted full-project SHA-256: `edc4e8a574f5845cd073fb96d2d19b5aa3ce04d2d6e989dc1e329370772ce59b`;
-- M31 final → M32 final incremental SHA-256: `4a6c9dd61990da5d268f131aa82afb96f9763b35c93680dad48f3f794b41be04`;
-- reference accepted JAR SHA-256: `120b9ab4d1138f997883e1c7cbdb326aab46cb88a8f03a4a254b2c586bd8ef3f`;
-- user-local Windows accepted build JAR SHA-256: `a5f88bbfaf498820764e50f0088deb9d2b9f42a4ed5a22c9d8945c6183253760`.
+- final accepted full-project SHA-256: `91520ce27a3d9e04815511ec4f8e2a7bfea980d9bce5314722e2bedf120eae2e`;
+- M36 final → M37 final incremental SHA-256: `a69717bee3a2803cca70f6b410f59574a370f390b49752ab5aba5666187db986`;
+- M37 provisional → final status patch SHA-256: `15f77fff56e4ff1ea641a44632a01ca4af540e84d97e215dbac7a1d214af8692`;
+- accepted JAR SHA-256: `443ea918da4381b01b4a622985e8c90cf69f806a615a4d257856d098e5dca6b5`.
 
-The accepted source archive, not cross-platform JAR byte identity, is authoritative.
+The exact accepted full-project ZIP is the authoritative source artifact. The GitHub connector records exact source identities and acceptance status but does not directly ingest local `/mnt/data` ZIP bytes.
 
-## Retained non-blockers
+## Retained non-blocking observations
 
-- M19 second-open-supply-menu live refresh observation remains; server state authoritative, no accepted duplication/loss.
-- M26 Deep Crystal visual polish remains deferred/new-chunks-only.
-- M29 early headless environment race passed unchanged on rerun.
-- M31/M32 stale-process headless interference passed unchanged after process cleanup.
-- already-generated M31 STANDARD challenge terrain is not rewritten if later presented as Blockade.
+- M19 multiplayer open-menu live-refresh observation remains; server state is authoritative and accepted testing found no duplication/loss.
+- already-generated derived islands are never rewritten when a later deterministic profile applies new semantics;
+- M34 Enderman and M36 Wither-Skeleton refill cooldowns are runtime-only and may reset after server restart;
+- M36 Wither protection is deliberately local to tagged Ash Crown arena Withers; leaving the arena restores vanilla destruction;
+- M37 contains no playable large-vessel entity yet.
 
-## Post-M32 roadmap
+## Next phase
 
-Detailed plan: `docs/POST_M32_DEVELOPMENT_ROADMAP.md`.
+**M38 — Large Expedition Vessel playable vertical slice.**
 
-The post-M32 sequence is now refined as:
-
-- M33 — Dangerous Outer Ring / Deep Survey Bridge;
-- M34 — End Fragments / first DEEP End resources;
-- M35 — Drifting End City / Shulker progression / Ender Pearl automation closure;
-- M36 — Ash Crown Forge / Ancient Debris + Wither;
-- M37+ — large expedition vessel and endgame integration.
-
-## Immediate next milestone
-
-**M33 — Dangerous Outer Ring / Deep Survey Bridge.**
-
-M33 scope is frozen to one 3200-block Deep-range scanner tier plus one OUTER-only Storm Relay challenge family and compatibility coverage. M34+ remains locked until M33 local acceptance.
+M38 must branch from M37 final accepted and implement the first actual large-vessel entity/item/menu/renderer against the frozen independent 128-slot contract. It must not expand or reinterpret the accepted Basic Airship 91-slot layout.
