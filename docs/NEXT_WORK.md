@@ -1,25 +1,28 @@
 # Next Work
 
-Authoritative accepted baseline: **M39 — Deep Convergence challenge vertical slice, accepted 2026-08-13**.
+Authoritative accepted baseline: **M40 — Dockyard Deployment Module / 船坞部署模块, accepted 2026-08-13**.
 
-Current implementation: **M40 — Dockyard Deployment Module / 船坞部署模块 — candidate**.
+Current implementation: **M41 — Skybridge Builder / 天桥构筑器 — candidate**.
 
 ## Immediate gate
 
-Do not begin M41+ implementation. First complete M40 user-local acceptance.
+Do not begin M42+ implementation. First complete M41 user-local acceptance.
 
 Focus checks:
 
-1. Basic Airship 91-slot and Large Expedition Vessel 128-slot regression on an M39 accepted save copy;
-2. Dockyard Deployment Module endgame recipe and Large-Vessel-only installation;
-3. install Anchor Module, carry 24 Stone Bricks, hold one Docking Base, engage floating anchor and sneak-use the Large Vessel;
-4. confirm a 5×5 platform appears with the real Docking Base at center and exactly 24 Stone Bricks + one Docking Base are consumed in Survival;
-5. occupy any target cell and confirm deployment refuses without overwrite/material loss;
-6. save/reload Docking Base ↔ Large Vessel binding and ordinary logistics when the Logistics Module is present;
-7. judge real platform/vessel visual alignment locally.
+1. M40 accepted save and both vessel inventory/schema regressions remain normal;
+2. Skybridge Builder crafting cost feels appropriate for optional late-game convenience;
+3. main-hand builder + offhand ordinary simple full block places at most 8 horizontal blocks;
+4. survival material consumption exactly matches blocks actually placed;
+5. an obstruction stops placement before that cell, with no overwrite and no skipping behind it;
+6. vertical faces, chests and stateful blocks such as logs are rejected without consumption;
+7. item texture/tooltips/actionbar feedback are readable in the real client;
+8. no client error/model/texture/crash regression.
 
-## Scope-selection note retained for M41+
+## Retained future constraints
 
-A naive new DEEP rare ruin cannot simply take a leftover DEEP RUIN profile: accepted M29 selection runs first and accepted M35 Drifting End City consumes the remaining DEEP RUIN space. Any later rare-ruin work must introduce a genuinely non-reinterpreting contract rather than stealing accepted M35 islands.
+A future DEEP rare ruin still may not steal accepted M35 Drifting End City islands. Any such content needs a genuinely non-reinterpreting selection contract.
 
-Still out of scope: autopilot/route finding, moving-block ships, power/cable networks, wear/maintenance, quest locks, forced raids, mandatory crew roles and broad automatic outpost construction.
+## Locked later work
+
+M42+ remains locked until M41 acceptance. Do not silently bundle final long-range expedition objectives, new equipment families, another vessel tier or automation/power systems into M41.

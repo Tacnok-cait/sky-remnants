@@ -2,44 +2,63 @@
 
 ## Authoritative accepted baseline
 
-**M39 — Deep Convergence challenge vertical slice**
+**M40 — Dockyard Deployment Module / 船坞部署模块**
 
 Status: **accepted and closed on 2026-08-13**.
 
-The M39 final accepted full-project ZIP remains the authoritative accepted source baseline until M40 receives user-local acceptance.
+M40 passed candidate automation and user-local acceptance. The exact M40 final accepted full-project ZIP is the authoritative baseline from which M41 was developed.
 
 ## Current candidate
 
-**M40 — Dockyard Deployment Module / 船坞部署模块**
+**M41 — Skybridge Builder / 天桥构筑器**
 
 Status: **candidate — awaiting user-local acceptance**.
 
-M40 is one focused advanced construction/ship utility slice. A floating-anchored Large Expedition Vessel can use one new module, 24 accessible Stone Bricks and one existing Docking Base item to transactionally deploy a compact 5×5 docking platform and bind itself to the real Docking Base.
+M41 adds one optional endgame handheld construction convenience tool. It deliberately does not add another vessel module, vessel tier, automation network, energy system or world-content profile.
 
-### Compatibility contract
+### M41 candidate scope
+
+- append-only item ID `skyremnants:skybridge_builder`;
+- main hand: builder; offhand: supplied building blocks;
+- horizontal side-face use extends a straight bridge line by up to **8** blocks;
+- survival consumes exactly the number of blocks actually placed; creative `instabuild` does not consume;
+- stops before the first occupied, protected or unsupported target and never overwrites or skips across it;
+- accepts only simple full-collision blocks with no block entity and no block-state properties;
+- dedicated item model/16x16 texture, bilingual tooltip/messages and one shaped recipe from existing endgame materials.
+
+### Frozen compatibility contract
 
 - Minecraft 1.21.1 / NeoForge 21.1.244 / Java 21;
-- `SkyWorldData` remains v11 and payload protocol remains 1;
-- Basic Airship remains 91 real slots with accepted indices 28 / 29 / 36 / 46 / 90;
-- Large Expedition Vessel remains data version 1, 128 real slots, maximum 108 cargo;
-- both accepted input payload schemas remain v1;
+- `SkyWorldData` remains **v11**;
+- payload protocol remains **1**;
+- Basic Airship remains **91 real slots**, accepted indices **28 / 29 / 36 / 46 / 90**;
+- Large Expedition Vessel remains data version **1**, **128 real slots**, maximum **108 cargo**;
+- `airship_input` remains schema v1;
+- `large_vessel_input` remains schema v1;
+- M40 Dockyard Deployment behavior is unchanged;
 - `supply_manifest` and Docking Base persisted `docked_airship` meanings remain unchanged;
-- M40 adds only append-only item `skyremnants:dockyard_deployment_module`; no new block/entity/menu/payload/schema;
-- no world-profile/terrain reassignment; generated terrain/player builds are never retroactively rewritten.
+- M41 adds no block/entity/menu/payload/Data Component/SavedData/world-profile schema;
+- generated terrain/player builds are never retroactively rewritten.
 
-### M40 automated validation
+### M41 automated validation
 
-- JUnit **181/181**, 51 suites, 0 failures/errors/skips;
-- clean test/build + `verifyReleaseJarContents`: PASS;
-- GameTest **101/101 in 8.267 s**, Gradle exit 0;
-- dedicated server `Done (0.376s)!` → normal save/stop → exit 0;
-- real Xvfb + Mesa llvmpipe TitleScreen/resource smoke: PASS;
-- unexpected client errors 0; missing model/texture regressions 0; new crash reports 0.
+- JUnit: **186/186**, 52 suites, 0 failures/errors/skips;
+- clean + cached asset regeneration + build + `verifyReleaseJarContents`: PASS;
+- GameTest: **104/104 in 3.383 s**, Gradle exit 0;
+- dedicated server: `Done (8.040s)!` -> normal stop/save -> Gradle exit 0;
+- real Xvfb + Mesa llvmpipe client: TitleScreen/screenshot/graceful exit PASS;
+- unexpected client errors: 0;
+- missing model/texture/resource regressions: 0;
+- new crash reports: 0.
 
-## Retained limitations
+## Retained known limitations
 
-M40 requires all 25 target cells to be air and deliberately never overwrites terrain/player blocks. Its automated client run does not provide an in-world platform beauty shot; local acceptance must judge 5×5 platform/vessel alignment. The accepted M39 pre-generated DEEP old-terrain/new-presentation seam remains unchanged.
+- pre-generated DEEP challenge islands may retain old terrain with newer Deep Convergence presentation; judge that terrain on newly generated DEEP islands;
+- Skybridge Builder v1 is horizontal and straight-line only;
+- stateful blocks such as logs are rejected intentionally instead of guessing orientation;
+- block-entity materials such as chests are rejected;
+- the real headless-client run validates client lifecycle/resources, not in-world first-person Skybridge Builder feel.
 
 ## Next gate
 
-**M41+ is locked until M40 user-local acceptance.**
+**M42+ remains locked until M41 user-local acceptance.**
