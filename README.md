@@ -4,19 +4,25 @@ Sky Remnants is a Minecraft Java Edition 1.21.1 + NeoForge sky-island survival m
 
 ## Project status
 
-Authoritative accepted baseline: **M38 — Large Expedition Vessel playable vertical slice — accepted and closed on 2026-08-13**.
+Authoritative accepted baseline: **M39 — Deep Convergence challenge vertical slice — accepted and closed on 2026-08-13**.
 
-Current candidate: **M39 — Deep Convergence challenge vertical slice**. M40+ remains locked until M39 user-local acceptance.
+M40 is unlocked for one focused endgame vertical slice; no M40 runtime implementation is included in the M39 finalization.
 
-M39 adds one repeatable high-threat DEEP challenge profile while preserving both accepted vessel contracts. Read:
+## Accepted M39 validation
 
-- `docs/PROJECT_STATUS.md`
-- `docs/NEXT_WORK.md`
-- `docs/M39_UPDATE_NOTES_20260813.md`
-- `docs/M39_MIGRATION_CONTRACT_20260813.md`
-- `docs/M39_AUTOMATED_VALIDATION_20260813.md`
-- `docs/M39_ACCEPTANCE_CHECKLIST_20260813.md`
-- `docs/M39_KNOWN_LIMITATIONS_20260813.md`
+- JUnit **176/176**, 50 suites;
+- GameTest **99/99 in 3.425 s**;
+- release build + `verifyReleaseJarContents` PASS;
+- dedicated-server smoke PASS;
+- real Xvfb + Mesa llvmpipe client smoke PASS;
+- unexpected client errors 0;
+- missing model/texture regressions 0;
+- crash reports 0;
+- user-local M39 gameplay/visual acceptance PASS.
+
+### Retained terrain compatibility note
+
+Already-generated DEEP challenge islands are not rewritten. An old island can therefore show old terrain together with newer Deep Convergence presentation. **Use newly generated DEEP terrain to judge the M39 arena appearance.**
 
 ## Requirements
 
@@ -25,19 +31,6 @@ M39 adds one repeatable high-threat DEEP challenge profile while preserving both
 - Java 21
 
 Optional integrations: Jade and JEI. Neither is a hard dependency.
-
-## M39 candidate validation
-
-- JUnit **176/176**, 50 suites;
-- GameTest **99/99 in 3.425 s**;
-- release build + `verifyReleaseJarContents` PASS;
-- dedicated-server smoke PASS (`Done (0.381s)!` → normal save/stop);
-- real Xvfb + Mesa llvmpipe client TitleScreen/resource smoke PASS;
-- unexpected client errors: 0;
-- missing model/texture/resource regressions: 0;
-- new crash reports: 0.
-
-The M39 arena itself still requires user-local in-world visual/combat acceptance; the automated client run verifies the real client lifecycle and resources but stops at TitleScreen.
 
 ## License
 
