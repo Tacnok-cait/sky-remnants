@@ -2,36 +2,18 @@
 
 ## Authoritative accepted baseline
 
-**M41 — Skybridge Builder / 天桥构筑器**
+**M41 — Skybridge Builder / 天桥构筑器** — accepted and closed on 2026-08-14.
 
-Status: **accepted and closed on 2026-08-14**.
+## Current candidate
 
-M41 passed the frozen candidate automation chain and the complete user-local acceptance checklist. The exact M41 final accepted full-project ZIP remains the authoritative accepted source artifact.
+**M42 — Far Horizon Observatory / 远穹观测站** — candidate, awaiting user-local acceptance.
 
-## Accepted validation
+M42 adds one staged 4200+ DEEP ecology expedition objective after the accepted M28/M30 selectors. It preserves `SkyWorldData` v11, protocol 1, Basic Airship 91 slots, Large Expedition Vessel data-v1/128 slots, M40 Dockyard Deployment and M41 Skybridge Builder.
 
-- JUnit: **186/186**, 52 suites;
-- GameTest: **104/104 in 3.383 s**;
-- release build/JAR verification: PASS;
-- dedicated-server smoke: PASS;
-- real Xvfb + Mesa llvmpipe client smoke: PASS;
-- user-local M41 acceptance checklist: **PASS**.
+Automated candidate validation: JUnit **193/193** (53 suites), GameTest **107/107 in 3.144 s**, clean build/release verification PASS, dedicated-server smoke PASS, real Xvfb + llvmpipe client smoke PASS, unexpected client errors/missing resources/new crashes 0.
 
-## Frozen compatibility contract
+Important compatibility limit: already-generated qualifying 4200+ DEEP ecology chunks are never rewritten and may lack the new Observatory structure/caches. Judge M42 structure/rewards on newly generated far terrain.
 
-- Minecraft 1.21.1 / NeoForge 21.1.244 / Java 21;
-- `SkyWorldData` remains v11; payload protocol remains 1;
-- Basic Airship remains 91 real slots with indices 28 / 29 / 36 / 46 / 90;
-- Large Expedition Vessel remains data version 1, 128 real slots, maximum 108 cargo;
-- existing input payload schemas remain v1;
-- M40 Dockyard Deployment behavior remains unchanged;
-- M41 adds no block/entity/menu/payload/Data Component/SavedData/world-profile schema;
-- generated terrain/player builds are never retroactively rewritten.
+The exact M42 full candidate ZIP is the authoritative buildable source artifact; GitHub is currently a cross-conversation status index rather than a complete source mirror.
 
-## Accepted limitations
-
-Skybridge Builder v1 remains horizontal, straight-line and eight-block maximum. Stateful/orientation-sensitive blocks and block-entity materials are intentionally rejected. The accepted pre-generated DEEP old-terrain/new-presentation seam remains unchanged.
-
-## Next phase
-
-**M42 is unlocked for one focused vertical slice.** Prefer one final long-range expedition objective/loop without adding another vessel tier or bundling unrelated equipment, automation/power systems or destructive world reinterpretation.
+**M43+ remains locked until M42 local acceptance.**
