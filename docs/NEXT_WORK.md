@@ -2,43 +2,24 @@
 
 Authoritative accepted baseline: **M39 — Deep Convergence challenge vertical slice, accepted 2026-08-13**.
 
-## Immediate milestone gate: M40
+Current implementation: **M40 — Dockyard Deployment Module / 船坞部署模块 — candidate**.
 
-M40 is **unlocked for scope selection**. No M40 runtime implementation is part of M39 finalization.
+## Immediate gate
 
-Choose exactly one focused vertical slice from the frozen endgame-closure backlog:
+Do not begin M41+ implementation. First complete M40 user-local acceptance.
 
-- one deep rare ruin;
-- one advanced construction/ship utility capability;
-- one optional endgame equipment/tool family;
-- one final long-range expedition loop.
+Focus checks:
 
-Do not bundle all four into M40. M39 already establishes the repeatable high-threat DEEP challenge slice, so another generic arena should not be the default next step unless a concrete progression gap requires it.
+1. Basic Airship 91-slot and Large Expedition Vessel 128-slot regression on an M39 accepted save copy;
+2. Dockyard Deployment Module endgame recipe and Large-Vessel-only installation;
+3. install Anchor Module, carry 24 Stone Bricks, hold one Docking Base, engage floating anchor and sneak-use the Large Vessel;
+4. confirm a 5×5 platform appears with the real Docking Base at center and exactly 24 Stone Bricks + one Docking Base are consumed in Survival;
+5. occupy any target cell and confirm deployment refuses without overwrite/material loss;
+6. save/reload Docking Base ↔ Large Vessel binding and ordinary logistics when the Logistics Module is present;
+7. judge real platform/vessel visual alignment locally.
 
-## Compatibility gate inherited from M39
+## Scope-selection note retained for M41+
 
-Preserve/re-test:
+A naive new DEEP rare ruin cannot simply take a leftover DEEP RUIN profile: accepted M29 selection runs first and accepted M35 Drifting End City consumes the remaining DEEP RUIN space. Any later rare-ruin work must introduce a genuinely non-reinterpreting contract rather than stealing accepted M35 islands.
 
-- `SkyWorldData` v11 unless a genuine persisted-world schema need is demonstrated;
-- payload protocol 1 unless a genuinely new append-only payload type is required;
-- Basic Airship 91-slot contract and indices 28 / 29 / 36 / 46 / 90;
-- Large Expedition Vessel data-v1 128-slot contract and 108 maximum cargo;
-- both existing input payload schemas v1;
-- Docking Base `docked_airship` UUID compatibility;
-- `supply_manifest` meaning;
-- deterministic external-island identity/position/shape ordering;
-- non-destructive generated-terrain policy.
-
-## Retained terrain limitation
-
-Do not “fix” old DEEP challenge islands by rewriting generated chunks. An old island can retain old terrain while newer Deep Convergence presentation is shown. **Judge M39 arena appearance on newly generated DEEP terrain.**
-
-## Still out of scope unless separately approved
-
-- autopilot or route finding;
-- moving-block ships;
-- power/cable networks;
-- wear/maintenance systems;
-- quest-locked linear progression;
-- forced base raids;
-- mandatory multiplayer crew roles.
+Still out of scope: autopilot/route finding, moving-block ships, power/cable networks, wear/maintenance, quest locks, forced raids, mandatory crew roles and broad automatic outpost construction.

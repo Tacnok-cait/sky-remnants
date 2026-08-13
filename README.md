@@ -4,25 +4,15 @@ Sky Remnants is a Minecraft Java Edition 1.21.1 + NeoForge sky-island survival m
 
 ## Project status
 
-Authoritative accepted baseline: **M39 — Deep Convergence challenge vertical slice — accepted and closed on 2026-08-13**.
+Authoritative accepted baseline: **M39 — Deep Convergence — accepted and closed on 2026-08-13**.
 
-M40 is unlocked for one focused endgame vertical slice; no M40 runtime implementation is included in the M39 finalization.
+Current candidate: **M40 — Dockyard Deployment Module / 船坞部署模块**. M41+ remains locked until M40 user-local acceptance.
 
-## Accepted M39 validation
+M40 adds one Large Expedition Vessel-only construction utility: from a safe floating anchor it can transactionally deploy a compact 5×5 Stone Brick pad with the existing real Docking Base at center. The feature refuses any occupied target cell, consumes materials only after successful binding, and does not alter either accepted vehicle inventory schema.
 
-- JUnit **176/176**, 50 suites;
-- GameTest **99/99 in 3.425 s**;
-- release build + `verifyReleaseJarContents` PASS;
-- dedicated-server smoke PASS;
-- real Xvfb + Mesa llvmpipe client smoke PASS;
-- unexpected client errors 0;
-- missing model/texture regressions 0;
-- crash reports 0;
-- user-local M39 gameplay/visual acceptance PASS.
+Candidate validation: JUnit **181/181**; GameTest **101/101**; release verification, dedicated-server smoke and real Xvfb + llvmpipe client resource smoke PASS; unexpected client errors/missing resources/crash reports 0.
 
-### Retained terrain compatibility note
-
-Already-generated DEEP challenge islands are not rewritten. An old island can therefore show old terrain together with newer Deep Convergence presentation. **Use newly generated DEEP terrain to judge the M39 arena appearance.**
+The exact M40 full candidate ZIP remains the authoritative candidate source artifact; GitHub records cross-conversation status and scope rather than claiming byte-for-byte ZIP ingestion.
 
 ## Requirements
 
