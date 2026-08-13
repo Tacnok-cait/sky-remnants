@@ -1,28 +1,15 @@
 # Next Work
 
-Authoritative accepted baseline: **M40 — Dockyard Deployment Module / 船坞部署模块, accepted 2026-08-13**.
+Authoritative accepted baseline: **M41 — Skybridge Builder / 天桥构筑器, accepted 2026-08-14**.
 
-Current implementation: **M41 — Skybridge Builder / 天桥构筑器 — candidate**.
+## Immediate milestone gate: M42
 
-## Immediate gate
+M42 is **unlocked for scope selection**. No M42 runtime implementation is part of M41 finalization.
 
-Do not begin M42+ implementation. First complete M41 user-local acceptance.
+The strongest remaining candidate is one **final long-range expedition objective/loop** that gives the accepted Large Expedition Vessel, Deep-range Scan, Dockyard Deployment and Skybridge Builder a shared destination/use case without introducing a new vessel tier.
 
-Focus checks:
+Preserve `SkyWorldData` v11, protocol 1, both accepted vehicle inventory contracts, both input payload schemas v1, Docking Base UUID compatibility, M40 Dockyard Deployment, M41 Skybridge Builder and the non-destructive generated-terrain policy.
 
-1. M40 accepted save and both vessel inventory/schema regressions remain normal;
-2. Skybridge Builder crafting cost feels appropriate for optional late-game convenience;
-3. main-hand builder + offhand ordinary simple full block places at most 8 horizontal blocks;
-4. survival material consumption exactly matches blocks actually placed;
-5. an obstruction stops placement before that cell, with no overwrite and no skipping behind it;
-6. vertical faces, chests and stateful blocks such as logs are rejected without consumption;
-7. item texture/tooltips/actionbar feedback are readable in the real client;
-8. no client error/model/texture/crash regression.
+A future DEEP rare ruin still may not steal accepted M35 Drifting End City islands.
 
-## Retained future constraints
-
-A future DEEP rare ruin still may not steal accepted M35 Drifting End City islands. Any such content needs a genuinely non-reinterpreting selection contract.
-
-## Locked later work
-
-M42+ remains locked until M41 acceptance. Do not silently bundle final long-range expedition objectives, new equipment families, another vessel tier or automation/power systems into M41.
+Still out of scope unless separately approved: autopilot/route finding, moving-block ships, power/cable networks, wear/maintenance, quest locks, forced raids and mandatory crew roles.
