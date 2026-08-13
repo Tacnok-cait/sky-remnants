@@ -1,24 +1,44 @@
 # Next Work
 
-Authoritative accepted baseline: **M38 — Large Expedition Vessel playable vertical slice, accepted 2026-08-13**.
+Authoritative accepted baseline: **M39 — Deep Convergence challenge vertical slice, accepted 2026-08-13**.
 
-Current implementation: **M39 — Deep Convergence challenge vertical slice — candidate**.
+## Immediate milestone gate: M40
 
-## Immediate gate
+M40 is **unlocked for scope selection**. No M40 runtime implementation is part of M39 finalization.
 
-Do not begin M40+ implementation yet. First complete M39 user-local acceptance using `docs/M39_ACCEPTANCE_CHECKLIST_20260813.md`.
+Choose exactly one focused vertical slice from the frozen endgame-closure backlog:
 
-The focused manual checks are:
+- one deep rare ruin;
+- one advanced construction/ship utility capability;
+- one optional endgame equipment/tool family;
+- one final long-range expedition loop.
 
-1. M38 Basic Airship 91-slot and Large Expedition Vessel 128-slot regression on an accepted save copy;
-2. newly generated Deep Convergence arena visual/readability;
-3. 2 gold / 8 redstone / 16 corrupted residue start cost;
-4. voluntary three-wave high-threat combat feel;
-5. first-clear Totem reward and save/reload challenge persistence;
-6. no model/texture/client-log/crash regression.
+Do not bundle all four into M40. M39 already establishes the repeatable high-threat DEEP challenge slice, so another generic arena should not be the default next step unless a concrete progression gap requires it.
 
-## After acceptance
+## Compatibility gate inherited from M39
 
-Only after M39 is accepted, select one next M40 vertical slice from the already frozen M39+ endgame-closure backlog. Advanced ship utilities, optional endgame equipment/tools, additional long-range loops and any further rare ruins remain locked until that scope is explicitly selected.
+Preserve/re-test:
 
-Still out of scope unless separately approved: autopilot, route finding, moving-block ships, power/cable networks, wear/maintenance systems, quest-locked progression and forced base raids.
+- `SkyWorldData` v11 unless a genuine persisted-world schema need is demonstrated;
+- payload protocol 1 unless a genuinely new append-only payload type is required;
+- Basic Airship 91-slot contract and indices 28 / 29 / 36 / 46 / 90;
+- Large Expedition Vessel data-v1 128-slot contract and 108 maximum cargo;
+- both existing input payload schemas v1;
+- Docking Base `docked_airship` UUID compatibility;
+- `supply_manifest` meaning;
+- deterministic external-island identity/position/shape ordering;
+- non-destructive generated-terrain policy.
+
+## Retained terrain limitation
+
+Do not “fix” old DEEP challenge islands by rewriting generated chunks. An old island can retain old terrain while newer Deep Convergence presentation is shown. **Judge M39 arena appearance on newly generated DEEP terrain.**
+
+## Still out of scope unless separately approved
+
+- autopilot or route finding;
+- moving-block ships;
+- power/cable networks;
+- wear/maintenance systems;
+- quest-locked linear progression;
+- forced base raids;
+- mandatory multiplayer crew roles.
