@@ -2,16 +2,16 @@
 
 Authoritative accepted baseline: **M43 — Smithing Reliquary / 锻造遗库, accepted 2026-08-14**.
 
-## Immediate milestone gate: M44
+Current implementation: **M44 — Heavy Core progression closure / 沉重核心进度闭环 — candidate**.
 
-**M44 is unlocked for scope selection only.** No M44 runtime implementation is part of M43 finalization.
+## Immediate gate
 
-Start from the exact M43 final accepted full-project ZIP and select one focused vertical slice after inspecting the remaining post-M43 progression/resource/expedition gaps. Do not bundle multiple endgame systems into one milestone.
+Do not begin M45+ implementation. First complete M44 user-local acceptance.
 
-Preserve `SkyWorldData` v11, protocol 1, both accepted vehicle contracts, both input payload schemas v1, Docking Base UUID compatibility, M40 Dockyard Deployment, M41 Skybridge Builder, M42 Far Horizon, M43 Smithing Reliquary, append-only world-content ordering and the no-old-chunk-rewrite policy.
+Focus checks: Deep Convergence scan exposes `Heavy Core / 沉重核心`; a fresh pedestal awards exactly one vanilla Heavy Core; the one core payout stays within six output slots by omitting ordinary Gold only; later clears restore Gold and never repeat Heavy Core; a pre-M44 already-cleared pedestal can still claim one core because missing `heavy_core_reward_claimed` defaults false; save/reload keeps the claimed flag; vanilla Heavy Core + Breeze Rod crafts and behaves as the ordinary vanilla Mace.
 
-Retain the accepted M43 seam: pre-generated qualifying 3400+ residual DEEP ecology chunks are never rewritten and may lack Reliquary terrain/cache while current presentation identifies the profile.
+Preserve `SkyWorldData` v11, protocol 1, both accepted vehicle contracts, both input payload schemas v1, M40–M43 behavior, M43 external-island ordering and the non-destructive generated-terrain policy.
 
-Still out of scope unless separately approved: autopilot/route finding, moving-block ships, power/cable networks, wear/maintenance, quest-locked linear progression, forced base raids and mandatory multiplayer crew roles.
+Still out of scope: custom action-combat controls, autopilot/route finding, moving-block ships, power/cable networks, wear/maintenance, quest locks, forced raids and mandatory crew roles.
 
-**M45+ remains locked until M44 receives local acceptance.**
+**M45+ remains locked until M44 acceptance.**
