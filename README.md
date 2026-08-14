@@ -6,15 +6,15 @@ Sky Remnants is a Minecraft Java Edition 1.21.1 + NeoForge sky-island survival m
 
 Authoritative accepted baseline: **M43 — Smithing Reliquary / 锻造遗库 — accepted and closed on 2026-08-14**.
 
-M43 closes the vanilla Netherite Upgrade Smithing Template acquisition gap through an append-only deep smithing reliquary while preserving the accepted M36 Ancient Debris route and all prior vessel/world contracts.
+Current candidate: **M44 — Heavy Core progression closure / 沉重核心进度闭环**. M44 supplies one vanilla Heavy Core per Deep Convergence pedestal instead of inventing a custom endgame weapon, closing the existing Breeze Rod → vanilla Mace route.
 
-Accepted validation: JUnit **199/199**, GameTest **109/109**, post-clean release verification PASS, dedicated-server smoke PASS, real Xvfb + Mesa llvmpipe client smoke PASS, and user-local M43 acceptance PASS.
+Candidate validation: JUnit **205/205**, GameTest **111/111**, final clean release verification PASS, dedicated-server smoke PASS and real Xvfb + Mesa llvmpipe client smoke PASS.
 
-Important compatibility note: pre-M43 generated qualifying 3400+ residual DEEP ecology chunks are never rewritten and may retain old terrain/fauna without the new Reliquary cache. Judge M43 on newly generated qualifying terrain.
+M44 adds only append-only pedestal NBT `heavy_core_reward_claimed`; old missing data defaults false. `SkyWorldData` stays v11, protocol stays 1, vehicle contracts and the M43 world-content profile set are unchanged.
 
-**M44 is unlocked for one focused scope-selection step.**
+**M45+ remains locked until M44 user-local acceptance.**
 
-The exact M43 final accepted full-project ZIP is the authoritative buildable source artifact; GitHub records cross-conversation status and is not a guaranteed byte-for-byte complete source mirror.
+The exact M44 candidate full-project ZIP is the authoritative buildable source artifact; GitHub records cross-conversation status and is not a guaranteed byte-for-byte complete source mirror.
 
 ## Requirements
 
