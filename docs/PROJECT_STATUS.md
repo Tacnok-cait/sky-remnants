@@ -4,14 +4,18 @@
 
 **M42 — Far Horizon Observatory / 远穹观测站** — accepted and closed on 2026-08-14.
 
-The original M42 local checklist passed, then the candidate-r2 focused recheck also passed: the distant-echo Deep Scan cue is accepted and the core Barrel correctly adds 4–8 Bottles o' Enchanting. No runtime change was made after that acceptance.
+## Current candidate
 
-Accepted validation: JUnit **193/193** (53 suites), GameTest **107/107 in 4.007 s**, clean build/release verification PASS, dedicated-server smoke PASS, real Xvfb + llvmpipe client smoke PASS, unexpected client errors/missing resources/new crashes 0.
+**M43 — Smithing Reliquary / 锻造遗库** — candidate, awaiting user-local acceptance.
 
-Frozen contracts remain unchanged: `SkyWorldData` v11, protocol 1, Basic Airship 91 slots, Large Expedition Vessel data-v1/128 slots, both input payload schemas v1, M40 Dockyard Deployment and M41 Skybridge Builder.
+M43 appends one deep rare-ruin profile at ordinal 15 using only residual 3400+ DEEP ecology after accepted M28/M30/M42 selection. It does not take accepted M35 RUIN islands. The site provides one guaranteed vanilla Netherite Upgrade Smithing Template plus small smithing support materials, while explicitly excluding Ancient Debris, Netherite Scrap and Netherite Ingots so the accepted M36 debris route remains relevant.
 
-Accepted compatibility limit: already-generated qualifying 4200+ DEEP ecology chunks are never rewritten and may lack the Observatory structure/caches. Judge structure/rewards on newly generated qualifying far terrain. The distant-echo cue is only a progression hint and does not expose exact out-of-range coordinates.
+Frozen contracts remain unchanged: `SkyWorldData` v11, protocol 1, Basic Airship 91 slots, Large Expedition Vessel data-v1/128 slots, both input payload schemas v1, M40 Dockyard Deployment, M41 Skybridge Builder and M42 Far Horizon.
 
-The exact M42 final accepted full-project ZIP is the authoritative buildable source artifact; GitHub remains a cross-conversation status index rather than a guaranteed complete source mirror.
+Candidate validation: JUnit **199/199** (54 suites), GameTest **109/109 in 6.501 s**, post-clean build/release verification PASS, dedicated-server start/save/stop PASS, real Xvfb + llvmpipe client TitleScreen/screenshot/graceful-exit PASS, unexpected client errors/missing resources/new crashes 0.
 
-**M43 is unlocked for one focused scope-selection step. M44+ remains gated behind M43 local acceptance.**
+Compatibility limit: pre-generated qualifying 3400+ residual DEEP ecology chunks are never rewritten and may keep old ecology terrain/fauna with no new Reliquary cache. Judge M43 on newly generated qualifying terrain.
+
+The exact M43 candidate full-project ZIP is the authoritative buildable source artifact; GitHub remains a cross-conversation status index rather than a guaranteed complete source mirror.
+
+**M44+ remains locked until M43 local acceptance.**
