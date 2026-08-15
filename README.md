@@ -4,17 +4,15 @@ Sky Remnants is a Minecraft Java Edition 1.21.1 + NeoForge sky-island survival m
 
 ## Project status
 
-Authoritative accepted baseline: **M44 — Heavy Core progression closure / 沉重核心进度闭环 — accepted and closed on 2026-08-15**.
+Authoritative accepted baseline: **M45 — Endgame Closure & Release Hardening / 终局闭环与发布硬化 — accepted and closed on 2026-08-15**.
 
-Current candidate: **M45 — Endgame Closure & Release Hardening / 终局闭环与发布硬化**.
+M45 adds no gameplay content. It hardens the accepted M33–M44 endgame with cross-milestone progression tests and stronger production-JAR required-content checks. The final accepted release JAR is byte-identical to M44 final accepted and to the locally accepted M45 candidate.
 
-M45 deliberately adds no new player-facing gameplay. It adds cross-milestone endgame regression coverage and strengthens release-JAR content verification after the accepted M39–M44 endgame slices. Production runtime Java/resources/registries/recipes/worldgen are unchanged, and the M45 release JAR is byte-identical to M44 final accepted.
+Accepted validation: JUnit **210/210**, GameTest **112/112**, final clean build/release verification PASS, dedicated-server smoke PASS, real Xvfb + Mesa llvmpipe client smoke PASS, and user-local M45 acceptance PASS.
 
-Candidate validation: JUnit **210/210**, GameTest **112/112**, final clean test/build + release verification PASS, dedicated-server smoke PASS and real Xvfb + Mesa llvmpipe client smoke PASS.
+**M46 is unlocked for scope selection.** No M46 runtime implementation is included in M45 finalization.
 
-**M46+ remains locked until M45 user-local acceptance.**
-
-The exact M45 candidate full-project ZIP is the authoritative buildable source artifact; GitHub records cross-conversation status and is not a guaranteed byte-for-byte complete source mirror.
+The exact M45 final accepted full-project ZIP is the authoritative buildable source artifact; GitHub records status/scope and is not a guaranteed byte-for-byte complete runtime-source mirror.
 
 ## Requirements
 
