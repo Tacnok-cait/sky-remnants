@@ -4,17 +4,17 @@ Sky Remnants is a Minecraft Java Edition 1.21.1 + NeoForge sky-island survival m
 
 ## Project status
 
-Authoritative accepted baseline: **M43 — Smithing Reliquary / 锻造遗库 — accepted and closed on 2026-08-14**.
+Authoritative accepted baseline: **M44 — Heavy Core progression closure / 沉重核心进度闭环 — accepted and closed on 2026-08-15**.
 
-Current candidate: **M44 — Heavy Core progression closure / 沉重核心进度闭环**. M44 supplies one vanilla Heavy Core per Deep Convergence pedestal instead of inventing a custom endgame weapon, closing the existing Breeze Rod → vanilla Mace route.
+Current candidate: **M45 — Endgame Closure & Release Hardening / 终局闭环与发布硬化**.
 
-Candidate validation: JUnit **205/205**, GameTest **111/111**, final clean release verification PASS, dedicated-server smoke PASS and real Xvfb + Mesa llvmpipe client smoke PASS.
+M45 deliberately adds no new player-facing gameplay. It adds cross-milestone endgame regression coverage and strengthens release-JAR content verification after the accepted M39–M44 endgame slices. Production runtime Java/resources/registries/recipes/worldgen are unchanged, and the M45 release JAR is byte-identical to M44 final accepted.
 
-M44 adds only append-only pedestal NBT `heavy_core_reward_claimed`; old missing data defaults false. `SkyWorldData` stays v11, protocol stays 1, vehicle contracts and the M43 world-content profile set are unchanged.
+Candidate validation: JUnit **210/210**, GameTest **112/112**, final clean test/build + release verification PASS, dedicated-server smoke PASS and real Xvfb + Mesa llvmpipe client smoke PASS.
 
-**M45+ remains locked until M44 user-local acceptance.**
+**M46+ remains locked until M45 user-local acceptance.**
 
-The exact M44 candidate full-project ZIP is the authoritative buildable source artifact; GitHub records cross-conversation status and is not a guaranteed byte-for-byte complete source mirror.
+The exact M45 candidate full-project ZIP is the authoritative buildable source artifact; GitHub records cross-conversation status and is not a guaranteed byte-for-byte complete source mirror.
 
 ## Requirements
 
